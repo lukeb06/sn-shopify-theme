@@ -382,7 +382,7 @@ try {
         const _head = rStatus == 200 ? 'Thank you!' : 'Oops!';
         let _cont =
             rStatus == 200
-                ? 'Please check your email to receive your discount code.'
+                ? 'Please check your email to receive a discount code.'
                 : rText;
         createPopup(_head, _cont);
     });
