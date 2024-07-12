@@ -98,15 +98,10 @@ function createPopup(title, content, doTransition = true) {
     closeButton.style.border = 'none';
     closeButton.style.borderRadius = '5px';
     closeButton.style.backgroundColor = '#379c44';
-    // make a red similar in lightness to the green
-    // closeButton.style.backgroundColor = "#ff4d4d";
+
     closeButton.style.cursor = 'pointer';
     closeButton.style.color = 'white';
-    // closeButton.addEventListener("click", () => {
-    //     document.body.removeChild(background);
-    //     document.body.removeChild(popup);
-    //     document.body.style.overflow = "initial";
-    // });
+
     closeButton.onclick = () => {
         document.body.removeChild(background);
         document.body.removeChild(popup);
@@ -125,8 +120,7 @@ function createContactPopup() {
 
     const logo = document.createElement('img');
     logo.src = 'https://settlemyrenursery.com/content/web/sn-logo-medium.png';
-    // logo.style.width = "10%";
-    // logo.style.height = "100px";
+
     let oldHTML = popup.innerHTML;
     popup.innerHTML = '';
     popup.appendChild(logo);
@@ -136,14 +130,10 @@ function createContactPopup() {
 
     popupContent.style.display = 'grid';
     popupContent.style.gap = '1rem';
-    // popupContent.style.textAlign = "center";
+
     popupContent.style.placeItems = 'center';
     popupContent.style.width = '100%';
     popupContent.style.height = '100%';
-
-    // const text = document.createElement("center");
-    // text.textContent = "Please fill out the form to receive an email with information about landscape design.";
-    // popupContent.appendChild(text);
 
     const contentForm = document.createElement('form');
     contentForm.style.display = 'grid';
@@ -581,28 +571,10 @@ function createContactPopup() {
         submitData();
     });
 
-    // popup.style.overflowY = "auto";
-    // // Style the scrollbar to be skinny and #379c44
-    // popup.style.scrollbarWidth = "thin";
-    // popup.style.scrollbarColor = "#379c44 white";
-
-    // popup.style.borderRadius = "0.5rem 0 0 0.5rem";
-
     let closeButton = popup.getElementsByClassName('close-button')[0];
-    // closeButton.removeEventListener("click");
+
     closeButton.textContent = 'Submit';
     closeButton.onclick = submitData;
-
-    // contentForm.appendChild(closeButton);
-
-    // let center = document.createElement("center");
-    // let p = document.createElement("p");
-    // p.style.fontSize = "0.8rem";
-    // p.textContent = "Settlemyre Nursery never sells your data to third parties.";
-
-    // center.appendChild(p);
-
-    // popup.appendChild(center);
 }
 
 window.createContactPopup = createContactPopup;
