@@ -1,0 +1,140 @@
+{
+  "sections": {
+    "slideshow_64GwrK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_3QgBnK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
+            "heading": "Landscape Design",
+            "heading_size": "h1",
+            "subheading": "Create your dream landscape design.",
+            "button_label": "Learn More",
+            "link": "\/pages\/landscape-design",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "slide_XccGqD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Privacy_Trees_NC_Settlemyre_Nursery.jpg",
+            "heading": "Privacy Trees",
+            "heading_size": "h1",
+            "subheading": "Take back your privacy.",
+            "button_label": "Shop Now",
+            "link": "\/collections\/privacy-trees",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "left"
+          }
+        },
+        "slide_6FcxpD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/SpecimenTrees.jpg",
+            "heading": "Specimen Trees",
+            "heading_size": "h1",
+            "subheading": "Find the perfect specimen tree.",
+            "button_label": "Shop Now",
+            "link": "\/collections\/specimen-trees",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_3QgBnK",
+        "slide_XccGqD",
+        "slide_6FcxpD"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "ambient",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "custom_liquid_PhXPTm": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--3x1grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_w8xPqt": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--blocks beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a id=\"blockShopFruit\" class=\"block\"><\/a>\n                <a id=\"blockLandscapeDesign\" class=\"block\"><\/a>\n                <a id=\"blockShopTopBrands\" class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_c6F7xJ": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--4x2grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_jKEbVM": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Products",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "automated-collection",
+        "products_to_show": 6,
+        "columns_desktop": 6,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "slideshow_64GwrK",
+    "custom_liquid_PhXPTm",
+    "custom_liquid_w8xPqt",
+    "custom_liquid_c6F7xJ",
+    "featured_collection_jKEbVM"
+  ]
+}

@@ -1,0 +1,528 @@
+main.landscape-page {
+    padding: 1rem;
+    display: grid;
+    gap: 1rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+main.landscape-page .page-heading {
+    grid-area: header;
+    text-align: center;
+}
+
+main.landscape-page .subhead {
+    text-align: center;
+    font-size: 2rem;
+}
+
+main.landscape-page .text {
+    padding: 0.5rem;
+}
+
+main.landscape-page h2 {
+    margin: 1rem 0;
+}
+
+main.landscape-page .contact-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #379c44;
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: 0.5rem auto;
+    -webkit-box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px gray;
+}
+
+main.landscape-page .carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+main.landscape-page .carousel .carousel-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main.landscape-page .carousel .carousel-image.active {
+    opacity: 1;
+}
+
+main.landscape-page .carousel .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 88;
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 0.4;
+    z-index: 89;
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-arrow.left {
+    left: 0;
+    -webkit-transform: translateY(-50%) rotate(-90deg);
+    -ms-transform: translateY(-50%) rotate(-90deg);
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-arrow.right {
+    right: 0;
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    -ms-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0.6;
+    z-index: 89;
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-dots .carousel-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+}
+
+main.landscape-page
+    .carousel
+    .carousel-overlay
+    .carousel-dots
+    .carousel-dot.active {
+    background-color: gray;
+}
+
+main.landscape-page .carousel .carousel-overlay .carousel-captions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    z-index: 87;
+    display: grid;
+    place-items: center;
+}
+
+main.landscape-page
+    .carousel
+    .carousel-overlay
+    .carousel-captions
+    .carousel-caption {
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    -webkit-box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px gray;
+    display: none;
+    opacity: 0.9;
+    padding: 2.5vmin;
+    font-size: 3vmin;
+    max-width: 60%;
+}
+
+main.landscape-page
+    .carousel
+    .carousel-overlay
+    .carousel-captions
+    .carousel-caption.active {
+    display: block;
+}
+
+main.landscape-page .text-center {
+    text-align: center;
+}
+
+main.sketch-and-go {
+    grid-template-areas: 'header' 'text1' 'media1' 'text2' 'media2' 'subhead1' 'contactbutton' 'subhead2' 'hero2' 'subhead3' 'media3' 'subhead4' 'text3' 'text4';
+}
+
+@media (min-width: 801px) {
+    main.sketch-and-go {
+        grid-template-areas: 'header header' 'text1 media1' 'media2 text2' 'subhead1 subhead1' 'contactbutton contactbutton' 'subhead2 subhead2' 'hero2 hero2' 'subhead3 subhead3' 'media3 media3' 'subhead4 subhead4' 'text3 text3' 'text4 text4';
+    }
+}
+
+main.sketch-and-go .subhead1 {
+    grid-area: subhead1;
+}
+
+main.sketch-and-go .subhead2 {
+    grid-area: subhead2;
+}
+
+main.sketch-and-go .subhead3 {
+    grid-area: subhead3;
+}
+
+main.sketch-and-go .subhead4 {
+    grid-area: subhead4;
+}
+
+main.sketch-and-go .hero1 {
+    grid-area: hero1;
+}
+
+main.sketch-and-go .hero2 {
+    grid-area: hero2;
+}
+
+main.sketch-and-go .media1 {
+    grid-area: media1;
+}
+
+main.sketch-and-go .media2 {
+    grid-area: media2;
+}
+
+main.sketch-and-go .media3 {
+    grid-area: media3;
+}
+
+main.sketch-and-go .text1 {
+    grid-area: text1;
+}
+
+main.sketch-and-go .text2 {
+    grid-area: text2;
+}
+
+main.sketch-and-go .text3 {
+    grid-area: text3;
+    text-align: center;
+}
+
+main.sketch-and-go .text4 {
+    grid-area: text4;
+    text-align: center;
+}
+
+main.sketch-and-go .contact-button {
+    grid-area: contactbutton;
+}
+
+main.sketch-and-go #player-78943dea-8fba-423c-af64-964fa94476d7 {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/8;
+}
+
+main.sketch-and-go .text {
+    padding: 0.5rem;
+}
+
+main.sketch-and-go h2 {
+    margin: 1rem 0;
+}
+
+main.sketch-and-go .hero1 {
+    margin: 2rem 0;
+}
+
+main.sketch-and-go .carousel.media {
+    min-height: 300px;
+}
+
+main.sketch-and-go .carousel.media #CI1 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/dimensions-with-text.jpg?t=1691516913');
+}
+
+main.sketch-and-go .carousel.media #CI2 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/house-with-text.jpg?t=1691516966');
+}
+
+main.sketch-and-go .carousel.hero2 {
+    min-height: 300px;
+}
+
+@media (min-width: 801px) {
+    main.sketch-and-go .carousel.hero2 {
+        min-height: 600px;
+    }
+}
+
+main.sketch-and-go .carousel.hero2 #CI1 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/review1.jpg?t=1691518599');
+}
+
+main.sketch-and-go .carousel.hero2 #CI2 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/review2.jpg?t=1691518623');
+}
+
+main.sketch-and-go .carousel.hero2 #CI3 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/review3.jpg?t=1691518647');
+}
+
+main.sketch-and-go .contact-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #379c44;
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin: 0.5rem auto;
+    -webkit-box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px gray;
+}
+
+main.scaled-drawings {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main.scaled-drawings .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+main.scaled-drawings ul.text {
+    margin-bottom: 0;
+}
+
+main.scaled-drawings .carousel {
+    min-height: 300px;
+    margin-bottom: 1rem;
+    aspect-ratio: 1;
+}
+
+main.scaled-drawings .carousel .carousel-image {
+    background-size: cover;
+}
+
+@media (min-width: 801px) {
+    main.scaled-drawings .carousel {
+        min-height: 600px;
+        aspect-ratio: unset;
+    }
+
+    main.scaled-drawings .carousel .carousel-image {
+        background-size: contain;
+    }
+}
+
+main.scaled-drawings .carousel #CI1 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/scaled-drawing-1.jpg?t=1707929866');
+}
+
+main.scaled-drawings .carousel #CI2 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/scaled-drawing-2.jpg?t=1707929889');
+}
+
+main.scaled-drawings .carousel #CI3 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/scaled-drawing-3.jpg?t=1707929913');
+}
+
+main.digital-renderings {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main.digital-renderings .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+main.digital-renderings ul.text {
+    margin-bottom: 0;
+}
+
+main.digital-renderings .carousel {
+    min-height: 300px;
+    margin-bottom: 1rem;
+    aspect-ratio: 1;
+}
+
+main.digital-renderings .carousel .carousel-image {
+    background-size: cover;
+}
+
+@media (min-width: 801px) {
+    main.digital-renderings .carousel {
+        min-height: 600px;
+        aspect-ratio: unset;
+    }
+
+    main.digital-renderings .carousel .carousel-image {
+        background-size: contain;
+    }
+}
+
+main.digital-renderings .carousel #CI1 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/emergeorthosouthrend.jpg?t=1698254793');
+}
+
+main.digital-renderings .carousel #CI2 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/burkhalterfrontrend.jpg?t=1698254814');
+}
+
+main.digital-renderings .carousel #CI3 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/bureshfrontlowerrend2.jpg?t=1698254842');
+}
+
+main.digital-renderings .carousel #CI4 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/garnerfrontrendering2.jpg?t=1698254927');
+}
+
+main.digital-renderings .carousel #CI5 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/burkhalterleftyardrend.jpg?t=1698254947');
+}
+
+main.digital-renderings .carousel #CI6 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/2.jpg?t=1698255196');
+}
+
+main.digital-renderings .carousel #CI7 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/3.jpg?t=1698255214');
+}
+
+main.delivery-and-placement {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main.delivery-and-placement .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+main.delivery-and-placement ul.text {
+    margin-bottom: 0;
+}
+
+main.delivery-and-placement h2 {
+    font-size: 1rem !important;
+    text-align: left !important;
+}
+
+@media (min-width: 801px) {
+    main.delivery-and-placement h2 {
+        font-size: 1.5rem !important;
+        text-align: left !important;
+    }
+}
+
+main.delivery-and-placement .carousel {
+    min-height: 300px;
+    margin-bottom: 1rem;
+    aspect-ratio: 1;
+}
+
+main.delivery-and-placement .carousel .carousel-image {
+    background-size: cover;
+}
+
+@media (min-width: 801px) {
+    main.delivery-and-placement .carousel {
+        min-height: 600px;
+        aspect-ratio: unset;
+    }
+
+    main.delivery-and-placement .carousel .carousel-image {
+        background-size: contain;
+    }
+}
+
+main.delivery-and-placement .carousel #CI1 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/delivery-and-placement-1.jpg?t=1708525260');
+}
+
+main.delivery-and-placement .carousel #CI2 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/delivery-and-placement-2.jpg?t=1708525283');
+}
+
+main.delivery-and-placement .carousel #CI3 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/delivery-and-placement-3.jpg?t=1708525306');
+}
+
+main.delivery-and-placement .carousel #CI4 {
+    background-image: url('https://cdn11.bigcommerce.com/s-wmonsw2bbs/images/stencil/original/image-manager/delivery-and-placement-4.jpg?t=1708525329');
+}

@@ -1,0 +1,39 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "custom_liquid_WcCWT3": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "input {font-size: 1.5rem;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div class=\"email-wrapper\">\n<form id=\"emailSubform\">\n<label>Subscribe Now!<\/label>\n<div>\n<input type=\"email\" placeholder=\"Enter your email address\"\/>\n<input type=\"submit\" class=\"button button--primary\" \/>\n<\/div>\n<\/form>\n<\/div>",
+        "color_scheme": "",
+        "padding_top": 8,
+        "padding_bottom": 16
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_WcCWT3",
+    "footer"
+  ]
+}

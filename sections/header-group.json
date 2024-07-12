@@ -1,0 +1,72 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Earn 5% back on all purchases. Learn more",
+            "link": "\/pages\/rewards"
+          }
+        },
+        "announcement_NDAi9V": {
+          "type": "announcement",
+          "settings": {
+            "text": "Annuals: Buy 1 Get TWO FREE!",
+            "link": "\/collections\/annuals"
+          }
+        },
+        "announcement_ApTagb": {
+          "type": "announcement",
+          "settings": {
+            "text": "Traditional Butterfly Bushes: BOGO 50% Off!",
+            "link": "\/collections\/butterfly-bushes"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "announcement_NDAi9V",
+        "announcement_ApTagb"
+      ],
+      "custom_css": [
+        "p {margin-top: 6px;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-d1d5c835-e65b-4a54-85c2-0e9a052bdeba",
+        "show_line_separator": false,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "none",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
