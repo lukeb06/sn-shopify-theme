@@ -347,6 +347,7 @@ try {
     console.log(e);
 }
 
+// Email Subscription Form
 try {
     const emailSubForm = document.querySelector('#emailSubform');
     emailSubForm.addEventListener('submit', async (e) => {
