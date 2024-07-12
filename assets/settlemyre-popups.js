@@ -14,19 +14,13 @@ function createPopup(title, content, doTransition = true) {
     background.style.backdropFilter = 'blur(5px)';
     // disable scrolling behind the background
     document.body.style.overflow = 'hidden';
-    // background.addEventListener("click", () => {
-    //     document.body.removeChild(background);
-    //     document.body.removeChild(popup);
-    //     document.body.style.overflow = "initial";
-    // });
+
     document.body.appendChild(background);
 
     // Create the popup
     const popup = document.createElement('div');
 
     window.removePopup = () => {
-        // document.body.removeChild(document.querySelector(".popup-background"));
-        // document.body.removeChild(document.querySelector(".popup"));
         popup.remove();
         background.remove();
         document.body.style.overflow = 'initial';
@@ -35,21 +29,7 @@ function createPopup(title, content, doTransition = true) {
     background.addEventListener('click', removePopup);
 
     popup.className = 'popup';
-    // popup.style.position = "fixed";
-    // popup.style.top = "50%";
-    // popup.style.left = "50%";
-    // popup.style.transform = "translate(-50%, -50%)";
-    // popup.style.width = "95vmin";
-    // popup.style.aspectRatio = "300/218";
-    // popup.style.backgroundColor = "white";
-    // popup.style.border = "1px solid lightgray";
-    // popup.style.borderRadius = "5px";
-    // popup.style.padding = "10px";
-    // popup.style.display = "flex";
-    // popup.style.flexDirection = "column";
-    // popup.style.justifyContent = "space-between";
-    // popup.style.alignItems = "center";
-    // popup.style.zIndex = "999";
+
     document.body.appendChild(popup);
 
     if (doTransition) {
@@ -64,14 +44,6 @@ function createPopup(title, content, doTransition = true) {
             background.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         }, 100);
     }
-
-    // background.style.transition = "background-color 0.5s ease-in-out";
-    // // background.style.transform = "scale(0)";
-    // background.style.backgroundColor = "rgba(0, 0, 0, 0)"
-    // setTimeout(() => {
-    //     // popup.style.transform = "scale(1)";
-    //     background.style.backgroundColor = "rgba(0, 0, 0, 0.5)"
-    // }, 100);
 
     // Create the title
     const popupTitle = document.createElement('h2');
