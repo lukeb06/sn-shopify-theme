@@ -208,6 +208,18 @@
     }
 } */
 
+.grid.product-grid.contains-card.slider {
+    margin-bottom: 0;
+}
+
+.collection__title.title-wrapper.title-wrapper--no-top-margin {
+    margin-bottom: 0;
+}
+
+.collection__title.title-wrapper.title-wrapper--no-top-margin .title {
+    margin-bottom: 0;
+}
+
 .beautify__section--blocks .block-wrapper {
     display: grid;
     gap: 1rem;
