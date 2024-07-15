@@ -137,7 +137,7 @@ try {
     };
 
     // const handlers = [handleHeader, handleHeaderGrid, handleLandscape];
-    const handlers = [handleHeader, handleLandscape];
+    const handlers = [handleLandscape, handleHeaderGrid];
 
     try {
         const newGrid = (selector, reqData, onData) => {
@@ -229,7 +229,7 @@ try {
         // grids = [];
 
         fetch(
-            'https://cdn.shopify.com/s/files/1/0886/9658/6534/files/homepage-config.json?v=1720814958'
+            'https://cdn.shopify.com/s/files/1/0886/9658/6534/files/homepage-config.json'
         )
             .then((r) => r.json())
             .then((r) => {
@@ -246,6 +246,73 @@ try {
     } catch (e) {
         console.log(e);
     }
+} catch (e) {
+    console.log(e);
+}
+
+// Experimental
+try {
+    function grab() {
+        console.log('Attempting to grab');
+
+        window.LAST_RESIZE = 'grab';
+
+        const homeBelowGridSection = document.querySelector(
+            '.shopify-section:has(.home-below-grid-wrapper)'
+        );
+        if (!homeBelowGridSection)
+            throw new Error('No home below grid section');
+
+        const featuredForHomeBelowGrid =
+            homeBelowGridSection.nextElementSibling;
+        if (!featuredForHomeBelowGrid)
+            throw new Error('No featured for home below grid');
+
+        const gridRegion_c = homeBelowGridSection.querySelector('.region-c');
+        if (!gridRegion_c) throw new Error('No grid region c');
+
+        gridRegion_c.appendChild(featuredForHomeBelowGrid);
+    }
+
+    function release() {
+        console.log('Attempting to release');
+
+        window.LAST_RESIZE = 'release';
+
+        const homeBelowGridSection = document.querySelector(
+            '.shopify-section:has(.home-below-grid-wrapper)'
+        );
+        if (!homeBelowGridSection)
+            throw new Error('No home below grid section');
+
+        const featuredForHomeBelowGrid =
+            homeBelowGridSection.querySelector('.shopify-section');
+
+        if (!featuredForHomeBelowGrid)
+            throw new Error('No featured for home below grid');
+
+        const gridRegion_c = homeBelowGridSection.querySelector('.region-c');
+
+        if (!gridRegion_c) throw new Error('No grid region c');
+
+        gridRegion_c.removeChild(featuredForHomeBelowGrid);
+
+        homeBelowGridSection.after(featuredForHomeBelowGrid);
+    }
+
+    if (window.innerWidth >= 801) {
+        grab();
+    }
+
+    window.onresize = () => {
+        if (window.innerWidth < 801) {
+            if (window.LAST_RESIZE == 'release') return;
+            release();
+        } else {
+            if (window.LAST_RESIZE == 'grab') return;
+            grab();
+        }
+    };
 } catch (e) {
     console.log(e);
 }
