@@ -1,3 +1,25 @@
+// Get Files from NGROK
+try {
+    window.loadJSON = (path) => {
+        return new Promise((resolve, reject) => {
+            fetch(
+                `https://termite-enormous-hornet.ngrok-free.app/files/${path}`,
+                {
+                    method: 'GET',
+                    headers: {
+                        'ngrok-skip-browser-warning': 'skip',
+                    },
+                }
+            )
+                .then((response) => response.json())
+                .then((data) => resolve(data));
+        });
+    };
+} catch (e) {
+    console.warn("Couldn't load files");
+    console.log(e);
+}
+
 // Dynamic Hompage
 try {
     const handleHeader = (r) => {
@@ -228,27 +250,17 @@ try {
         grids = grids.filter((grid) => grid.wrapper != null);
         // grids = [];
 
-        fetch(
-            'https://termite-enormous-hornet.ngrok-free.app/files/config/homepage-config.json',
-            {
-                method: 'GET',
-                headers: {
-                    'ngrok-skip-browser-warning': 'skip',
-                },
-            }
-        )
-            .then((r) => r.json())
-            .then((r) => {
-                console.log(r);
+        loadJSON('config/homepage-config.json').then((r) => {
+            console.log(r);
 
-                grids.forEach((grid) => {
-                    Array.from(grid.wrapper.children).forEach((child, i) => {
-                        grid.ondata(r, child, i);
-                    });
+            grids.forEach((grid) => {
+                Array.from(grid.wrapper.children).forEach((child, i) => {
+                    grid.ondata(r, child, i);
                 });
-
-                handlers.forEach((handler) => handler(r));
             });
+
+            handlers.forEach((handler) => handler(r));
+        });
     } catch (e) {
         console.log(e);
     }
@@ -334,6 +346,85 @@ try {
 
     ul.classList.remove('chidden');
 } catch (e) {
+    console.log(e);
+}
+
+/*
+
+.list-menu--inline li:has(a[href*='/collections/on-sale']):before {
+    content: 'SALE!';
+    display: block;
+    color: #ff4500;
+    background-color: #eee;
+    font-size: 0.8rem;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-weight: 700;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    -webkit-transform: translateY(11px);
+    -ms-transform: translateY(11px);
+    transform: translateY(11px);
+    font-family: serif;
+}
+
+*/
+
+// Navbar Hotlinks
+try {
+    window.stripText = (text) => {
+        return text
+            .replace(/[^a-zA-Z0-9]/g, ' ')
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, '-');
+    };
+
+    window.loadJSON('config/navbar-hotlinks.json').then((hotlinks) => {
+        hotlinks.forEach((hotlink) => {
+            const li = Array.from(
+                document.querySelectorAll('.list-menu--inline li')
+            ).find((li) => {
+                return li.innerText
+                    .toLowerCase()
+                    .includes(hotlink.find.toLowerCase());
+            });
+
+            const className = `${stripText(hotlink.find)}-hotlink`;
+
+            li.classList.add(className);
+
+            const newStyle = `
+                .${className}:before {
+                    content: '${hotlink.hot_text}';
+                    display: block;
+                    color: #ff4500;
+                    background-color: #eee;
+                    font-size: 0.8rem;
+                    border-radius: 999px;
+                    padding: 2px 8px;
+                    font-weight: 700;
+                    width: -webkit-fit-content;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    margin: 0 auto;
+                    -webkit-transform: translateY(11px);
+                    -ms-transform: translateY(11px);
+                    transform: translateY(11px);
+                    font-family: serif;
+                }
+            `;
+
+            const style = document.createElement('style');
+            style.innerHTML = newStyle;
+
+            document.head.appendChild(style);
+        });
+    });
+} catch (e) {
+    console.warn("Couldn't load hotlinks");
     console.log(e);
 }
 

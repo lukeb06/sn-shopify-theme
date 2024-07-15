@@ -118,7 +118,7 @@
     }
 }
 
-.list-menu--inline li:has(a[href*='/pages/landscape-design']):before {
+/* .list-menu--inline li:has(a[href*='/pages/landscape-design']):before {
     content: 'HOT!';
     display: block;
     color: #ff4500;
@@ -154,7 +154,7 @@
     -ms-transform: translateY(11px);
     transform: translateY(11px);
     font-family: serif;
-}
+} */
 
 /* I'd like to explore this in the future, but idrk how to make it look good. */
 /* Mobile menu hotlinks */
