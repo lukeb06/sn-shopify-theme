@@ -113,8 +113,8 @@
     "featured_collection_mydf7L": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
+        "title": "Popular Amendments for Spring",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -171,8 +171,8 @@
       "settings": {
         "custom_liquid": "<div class=\"beautify__section beautify__section--below-section1 beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"wrapper\">\n                <div class=\"header\">\n                    <h2><\/h2>\n                <\/div>\n                <div class=\"more\">\n                    <p>\n                    <\/p>\n                    <a\n                        href=\"\"\n                        class=\"button button--light button--large\"\n                        ><\/a\n                    >\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>",
         "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 24
       }
     }
   },
