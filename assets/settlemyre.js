@@ -250,11 +250,9 @@ try {
     console.log(e);
 }
 
-// Experimental
+// Grab and Release [THE SECTION DIRECTLY BELOW THE HOMEGRID]
 try {
     function grab() {
-        console.log('Attempting to grab');
-
         window.LAST_RESIZE = 'grab';
 
         const homeBelowGridSection = document.querySelector(
@@ -275,8 +273,6 @@ try {
     }
 
     function release() {
-        console.log('Attempting to release');
-
         window.LAST_RESIZE = 'release';
 
         const homeBelowGridSection = document.querySelector(
