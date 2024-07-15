@@ -860,6 +860,12 @@
     padding-top: 0.25rem;
 }
 
+.beautify__section--below-section1 .wrapper .more a {
+    width: fit-content;
+    display: flex;
+    margin: 0 auto;
+}
+
 .home-below-grid-wrapper {
     display: grid;
     grid-template-columns: 1fr;
