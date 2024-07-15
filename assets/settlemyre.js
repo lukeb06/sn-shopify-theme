@@ -229,7 +229,13 @@ try {
         // grids = [];
 
         fetch(
-            'https://cdn.shopify.com/s/files/1/0886/9658/6534/files/homepage-config.json'
+            'https://termite-enormous-hornet.ngrok-free.app/files/config/homepage-config.json',
+            {
+                method: 'GET',
+                headers: {
+                    'ngrok-skip-browser-warning': 'skip',
+                },
+            }
         )
             .then((r) => r.json())
             .then((r) => {
@@ -332,7 +338,6 @@ try {
 }
 
 // Landscape Design Carousels
-
 try {
     console.log('Landscape Design Init');
 
