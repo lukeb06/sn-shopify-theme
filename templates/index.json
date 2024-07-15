@@ -3,6 +3,25 @@
     "slideshow_64GwrK": {
       "type": "slideshow",
       "blocks": {
+        "slide_i3cD93": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
+        },
         "slide_3QgBnK": {
           "type": "slide",
           "settings": {
@@ -59,18 +78,22 @@
         }
       },
       "block_order": [
+        "slide_i3cD93",
         "slide_3QgBnK",
         "slide_XccGqD",
         "slide_6FcxpD"
       ],
+      "custom_css": [
+
+      ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "medium",
+        "slide_height": "small",
         "slider_visual": "dots",
         "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "ambient",
-        "show_text_below": true,
+        "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
     },

@@ -549,3 +549,22 @@ try {
 } catch (e) {
     console.log(e);
 }
+
+// const _newstyle = `
+// .slideshow__text.banner__box.content-container {
+//     background-color: rgba(255, 255, 255, 0.5) !important;
+//     backdrop-filter: blur(5px) saturate(180%) !important;
+//     border-radius: 1rem !important;
+// }
+// @media (max-width: 670px) {
+//     .slideshow__text.banner__box.content-container {
+//         border-radius: 0 !important;
+//     }
+// }
+// `;
+
+// document
+//     .querySelectorAll('.slideshow__text.banner__box.content-container')
+//     .forEach((el) => {
+//         el.style.backdropFilter = 'blur(5px) saturate(180%)';
+//     });
