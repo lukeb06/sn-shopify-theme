@@ -74,19 +74,19 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "custom_liquid_PhXPTm": {
+    "custom_liquid_w8xPqt": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--3x1grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--blocks beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a id=\"blockShopFruit\" class=\"block\"><\/a>\n                <a id=\"blockLandscapeDesign\" class=\"block\"><\/a>\n                <a id=\"blockShopTopBrands\" class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
       }
     },
-    "custom_liquid_w8xPqt": {
+    "custom_liquid_PhXPTm": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--blocks beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a id=\"blockShopFruit\" class=\"block\"><\/a>\n                <a id=\"blockLandscapeDesign\" class=\"block\"><\/a>\n                <a id=\"blockShopTopBrands\" class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--3x1grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -141,7 +141,7 @@
     "featured_collection_jKEbVM": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured Products",
+        "title": "Best Selling",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -206,8 +206,8 @@
   },
   "order": [
     "slideshow_64GwrK",
-    "custom_liquid_PhXPTm",
     "custom_liquid_w8xPqt",
+    "custom_liquid_PhXPTm",
     "custom_liquid_c6F7xJ",
     "custom_liquid_Yedbbc",
     "featured_collection_mydf7L",

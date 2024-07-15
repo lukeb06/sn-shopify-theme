@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_UKC9Ft": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XX4niJ": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<h2>Earn rewards for shopping with us!<\/h2><h3>We are thankful for your business! As a reward for shopping at our nursery, you can now earn in-store credit for your purchases. <\/h3><h2>How it works<\/h2><h3>When you shop with us, you will receive 5% of your purchase amount back as rewards credit on purchases $20 or greater. Redeem on your next visit! Redeem up to $50 at a time.<\/h3><h2>How can I check my balance? <\/h2><h3>Check your balance at the bottom or your receipt or <a href=\"https:\/\/settlemyrenursery.com\/account.php?action=order_status\">in your online user account.<\/a><\/h3><h2>Do points expire?<\/h2><h3>All points expire twice a year, June 30th and December 31st. Don't loose your points. Come see us, and take home the healthiest plants alive!<\/h3>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_cRzfF4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rewards_1000x1000_9d6355f3-4ee3-4e61-91f9-e617ebb57c39.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XX4niJ",
+        "column_cRzfF4"
+      ],
+      "settings": {
+        "title": "Rewards Program",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_UKC9Ft"
+  ]
+}
