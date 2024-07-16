@@ -1113,3 +1113,23 @@
 .product-form__input--pill input[type='radio']:checked + label {
     --color-foreground: 55, 156, 68;
 }
+
+media-gallery {
+    position: relative !important;
+}
+
+@media (max-width: 749px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+@media (min-width: 750px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+.desktop-only.product__description {
+    margin-top: 6rem;
+}
