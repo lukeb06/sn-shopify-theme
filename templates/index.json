@@ -139,17 +139,7 @@
     "custom_liquid_c6F7xJ": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--4x2grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "custom_liquid_Yedbbc": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "custom_liquid": "<div class=\"beautify__section beautify__section--header-grid beautify__section--displayType-carousel\">\n    <div class=\"container\">\n        <div class=\"home-below-grid-wrapper\">\n            <div class=\"grid-region region-a\">\n                <div>\n                    <h1 class=\"header\">\n                        <strong><\/strong>\n                    <\/h1>\n                    <p class=\"para\">\n                        <img src=\"\" alt=\"\" style=\"margin-top: 0.5rem\" \/>\n                    <\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-b\">\n                <div>\n                    <h2 class=\"header\"><\/h2>\n                    <p class=\"para\"><\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-c\"><\/div>\n        <\/div>\n    <\/div>\n<\/div>",
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--4x2grid beautify__section--displayType-carousel animate--slide-in scroll-trigger\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -193,13 +183,14 @@
         "padding_bottom": 0
       }
     },
-    "custom_liquid_iFBYWb": {
-      "type": "custom-liquid",
+    "settle_landscape_layout_hhAiig": {
+      "type": "settle-landscape-layout",
       "settings": {
-        "custom_liquid": "<div class=\"beautify__section beautify__section--below-section1 beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"wrapper\">\n                <div class=\"header\">\n                    <h2><\/h2>\n                <\/div>\n                <div class=\"more\">\n                    <p>\n                    <\/p>\n                    <a\n                        href=\"\"\n                        class=\"button button--light button--large\"\n                        ><\/a\n                    >\n                <\/div>\n            <\/div>\n        <\/div>\n    <\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 24
+        "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
+        "title": "Local Landscape Designers Help Beautify Your Home",
+        "paragraph": "<p>Our dedicated team of landscape designers provide hundreds of designs each year to customers wanting an expert perspective. Work with a team who can quickly produce an amazing solution for your landscape design challenges. No design project is too big or too small.<\/p>",
+        "button_label": "Learn More",
+        "button_link": "\/trigger\/landscape-popup"
       }
     },
     "featured_collection_bwPUeB": {
@@ -237,10 +228,9 @@
     "settle_3_1_grid_F43Rcp",
     "featured_collection_jKEbVM",
     "custom_liquid_c6F7xJ",
-    "custom_liquid_Yedbbc",
     "settle_header_grid_xE6n7e",
     "featured_collection_mydf7L",
-    "custom_liquid_iFBYWb",
+    "settle_landscape_layout_hhAiig",
     "featured_collection_bwPUeB"
   ]
 }

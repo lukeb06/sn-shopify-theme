@@ -1,0 +1,79 @@
+{% comment %} {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div> {% endcomment %}
+
+
+<div class="beautify__section beautify__section--below-section1 beautify__section--displayType-carousel animate--slide-in scroll-trigger">
+	<div class="container">
+		<div class="wrapper">
+			<div class="header" style="background-image: url('{{ section.settings.image | image_url: width: 800 }}')">
+				<h2>{{ section.settings.title | escape }}</h2>
+			</div>
+			<div class="more">
+				<p>
+					{{ section.settings.paragraph }}
+				</p>
+				<a
+					href="{{ section.settings.button_link }}"
+					class="button button--light button--large"
+					>{{ section.settings.button_label | escape }}</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "Rich Block",
+	"tag": "section",
+	"class": "section",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "image",
+			"label": "Choose an image"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title"
+		},
+		{
+			"type": "richtext",
+			"id": "paragraph",
+			"label": "Paragraph"
+		},
+		{
+			"type": "text",
+			"id": "button_label",
+			"label": "Button Label"
+		},
+		{
+			"type": "url",
+			"id": "button_link",
+			"label": "Button Link"
+		}
+	],
+	"presets": [
+	{
+		"name": "Rich Block"
+	}
+	]
+}
+{% endschema %}

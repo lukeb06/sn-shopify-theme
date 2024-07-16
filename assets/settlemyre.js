@@ -159,7 +159,8 @@ try {
     };
 
     // const handlers = [handleHeader, handleHeaderGrid, handleLandscape];
-    const handlers = [handleLandscape, handleHeaderGrid];
+    // const handlers = [handleLandscape, handleHeaderGrid];
+    const handlers = [];
 
     try {
         const newGrid = (selector, reqData, onData) => {

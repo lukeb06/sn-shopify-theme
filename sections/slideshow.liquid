@@ -32,7 +32,7 @@
   aria-label="{{ section.settings.accessibility_info | escape }}"
 >
   {%- if section.settings.auto_rotate and section.blocks.size > 1 -%}
-    <div class="slideshow__controls slideshow__controls--top slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
+    <div class="slideshow__controls d-none slideshow__controls--top slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -77,7 +77,7 @@
       </button>
 
       {% comment %} Uncomment this if you want the pause/play buttons to appear under the hero. {% endcomment %}
-      {% comment %} {%- if section.settings.auto_rotate -%}
+      {%- if section.settings.auto_rotate -%}
         <button
           type="button"
           class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
@@ -86,7 +86,7 @@
           {%- render 'icon-pause' -%}
           {%- render 'icon-play' -%}
         </button>
-      {%- endif -%} {% endcomment %}
+      {%- endif -%}
     </div>
   {%- endif -%}
 

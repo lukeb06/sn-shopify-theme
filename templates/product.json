@@ -25,7 +25,7 @@
           "type": "inventory",
           "settings": {
             "text_style": "uppercase",
-            "inventory_threshold": 10,
+            "inventory_threshold": 0,
             "show_inventory_quantity": true
           }
         },
@@ -57,12 +57,6 @@
           "type": "description",
           "settings": {
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -74,8 +68,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
-        "share"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
