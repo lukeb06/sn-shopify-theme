@@ -1,0 +1,87 @@
+{% comment %} {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div> {% endcomment %}
+
+
+<div
+    class="beautify__section beautify__section--blocks beautify__section--displayType-carousel">
+    <div class="container">
+        <div class="block-wrapper">
+            <a class="block" style="background-image: url('{{ section.settings.image1 | image_url: width: 600 }}')" href="{{ section.settings.link1 }}"></a>
+            <a class="block" style="background-image: url('{{ section.settings.image2 | image_url: width: 600 }}')" href="{{ section.settings.link2 }}"></a>
+            <a class="block" style="background-image: url('{{ section.settings.image3 | image_url: width: 600 }}')" href="{{ section.settings.link3 }}"></a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "3 Block Layout",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Block 1 (Left)"
+    },
+    {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link1",
+        "label": "Link"
+    },
+    {
+        "type": "header",
+        "content": "Block 2 (Top Right)"
+    },
+    {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link2",
+        "label": "Link"
+    },
+    {
+        "type": "header",
+        "content": "Block 3 (Bottom Right)"
+    },
+    {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link3",
+        "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "3 Block Layout"
+    }
+  ]
+}
+{% endschema %}

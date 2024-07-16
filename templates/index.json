@@ -3,25 +3,6 @@
     "slideshow_64GwrK": {
       "type": "slideshow",
       "blocks": {
-        "slide_i3cD93": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
-        },
         "slide_3QgBnK": {
           "type": "slide",
           "settings": {
@@ -78,7 +59,6 @@
         }
       },
       "block_order": [
-        "slide_i3cD93",
         "slide_3QgBnK",
         "slide_XccGqD",
         "slide_6FcxpD"
@@ -97,68 +77,35 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "custom_liquid_w8xPqt": {
-      "type": "custom-liquid",
+    "settle_3_block_layout_TKGcyA": {
+      "type": "settle-3-block-layout",
       "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--blocks beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a id=\"blockShopFruit\" class=\"block\"><\/a>\n                <a id=\"blockLandscapeDesign\" class=\"block\"><\/a>\n                <a id=\"blockShopTopBrands\" class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
+        "image1": "shopify:\/\/shop_images\/Dougle_Height.jpg",
+        "link1": "",
+        "image2": "shopify:\/\/shop_images\/Grid_2_Top_from_settlemyrenursery.com.jpg",
+        "link2": "shopify:\/\/pages\/landscape-design",
+        "image3": "shopify:\/\/shop_images\/Grid_3_Bottom.jpg",
+        "link3": ""
       }
     },
-    "custom_liquid_PhXPTm": {
-      "type": "custom-liquid",
+    "settle_3_1_grid_F43Rcp": {
+      "type": "settle-3-1-grid",
       "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--3x1grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n                <a class=\"block\"><\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "custom_liquid_c6F7xJ": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--4x2grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "custom_liquid_Yedbbc": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div class=\"beautify__section beautify__section--header-grid beautify__section--displayType-carousel\">\n    <div class=\"container\">\n        <div class=\"home-below-grid-wrapper\">\n            <div class=\"grid-region region-a\">\n                <div>\n                    <h1 class=\"header\">\n                        <strong><\/strong>\n                    <\/h1>\n                    <p class=\"para\">\n                        <img src=\"\" alt=\"\" style=\"margin-top: 0.5rem\" \/>\n                    <\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-b\">\n                <div>\n                    <h2 class=\"header\"><\/h2>\n                    <p class=\"para\"><\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-c\"><\/div>\n        <\/div>\n    <\/div>\n<\/div>",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection_mydf7L": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Popular Amendments for Spring",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "automated-collection",
-        "products_to_show": 25,
-        "columns_desktop": 3,
-        "full_width": true,
-        "show_view_all": false,
-        "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "image1": "shopify:\/\/shop_images\/Settle_My_Nursery_Directions.jpg",
+        "link1": "https:\/\/www.google.com\/maps\/place\/Settlemyre+Nursery\/@35.7350222,-81.6114111,15z\/data=!4m6!3m5!1s0x8850d134198ffec3:0x2c8878dae637a976!8m2!3d35.7350222!4d-81.6114111!16s%2Fg%2F11bxvfkzk8?entry=ttu",
+        "checkbox1": false,
+        "select1": "bottom",
+        "text1": "",
+        "image2": "shopify:\/\/shop_images\/Rewards_settlemyrenursery.jpg",
+        "link2": "shopify:\/\/pages\/rewards",
+        "checkbox2": false,
+        "select2": "bottom",
+        "text2": "",
+        "image3": "shopify:\/\/shop_images\/Dark_Hydrangea.jpg",
+        "link3": "",
+        "checkbox3": true,
+        "select3": "bottom",
+        "text3": "Hydrangeas"
       }
     },
     "featured_collection_jKEbVM": {
@@ -175,6 +122,63 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_liquid_c6F7xJ": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div\n        class=\"beautify__section beautify__section--4x2grid beautify__section--displayType-carousel\">\n        <div class=\"container\">\n            <div class=\"block-wrapper\">\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n                <a href=\"\" class=\"block\">\n                    <div class=\"image\"><\/div>\n                    <div class=\"title\"><\/div>\n                <\/a>\n            <\/div>\n        <\/div>\n    <\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_Yedbbc": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\"beautify__section beautify__section--header-grid beautify__section--displayType-carousel\">\n    <div class=\"container\">\n        <div class=\"home-below-grid-wrapper\">\n            <div class=\"grid-region region-a\">\n                <div>\n                    <h1 class=\"header\">\n                        <strong><\/strong>\n                    <\/h1>\n                    <p class=\"para\">\n                        <img src=\"\" alt=\"\" style=\"margin-top: 0.5rem\" \/>\n                    <\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-b\">\n                <div>\n                    <h2 class=\"header\"><\/h2>\n                    <p class=\"para\"><\/p>\n                <\/div>\n            <\/div>\n            <div class=\"grid-region region-c\"><\/div>\n        <\/div>\n    <\/div>\n<\/div>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "settle_header_grid_xE6n7e": {
+      "type": "settle-header-grid",
+      "settings": {
+        "title1": "Plant and Tree Nursery in Valdese, NC",
+        "paragraph1": "<p>Settlemyre Nursery is a garden center in Valdese, North Carolina. We exist to help you create a lasting landscape! Our plant nursery has flowers, trees, shrubs, and gardening essentials like mulch, soil, and tools. With a wide variety of products, and a dedicated team of landscape designers, our family-owned plant nursery is ready to help you accomplish your landscaping goals!<\/p>",
+        "image": "shopify:\/\/shop_images\/Settlemyre_Nursery_Planters_Header.jpg",
+        "title2": "Shop Healthy Plants and Trees All Year Long",
+        "paragraph2": "<h3>Our plant nursery is open year-round. Ask our knowledgeable staff about what options would work best in your landscape today. We are stocked with thousands of shade and privacy trees, as well as eye-catching specimen trees like Japanese maples and blue spruces.<\/h3>"
+      }
+    },
+    "featured_collection_mydf7L": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Popular Amendments for Spring",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "automated-collection",
+        "products_to_show": 25,
+        "columns_desktop": 3,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
         "enable_desktop_slider": true,
         "color_scheme": "",
         "image_ratio": "square",
@@ -222,19 +226,20 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 0,
-        "padding_bottom": 0
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "slideshow_64GwrK",
-    "custom_liquid_w8xPqt",
-    "custom_liquid_PhXPTm",
+    "settle_3_block_layout_TKGcyA",
+    "settle_3_1_grid_F43Rcp",
+    "featured_collection_jKEbVM",
     "custom_liquid_c6F7xJ",
     "custom_liquid_Yedbbc",
+    "settle_header_grid_xE6n7e",
     "featured_collection_mydf7L",
-    "featured_collection_jKEbVM",
     "custom_liquid_iFBYWb",
     "featured_collection_bwPUeB"
   ]

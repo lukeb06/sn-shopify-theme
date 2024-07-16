@@ -1,0 +1,222 @@
+{% comment %} {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div> {% endcomment %}
+
+
+{% comment %} 
+const overlay = document.createElement('div');
+overlay.className = `block-overlay block-overlay-${position}`;
+
+const overlayContent = document.createElement('div');
+overlayContent.className = 'block-overlay-content';
+overlayContent.textContent = text;
+
+overlay.appendChild(overlayContent);
+child.appendChild(overlay); 
+{% endcomment %}
+
+<div
+    class="beautify__section beautify__section--3x1grid beautify__section--displayType-carousel">
+    <div class="container">
+        <div class="block-wrapper">
+            <a class="block" style="background-image: url('{{ section.settings.image1 | image_url: width: 600 }}')" href="{{ section.settings.link1 }}">
+				{% if section.settings.text1 != blank %}
+					{% if section.settings.checkbox1 %}
+						<div class="block-overlay block-overlay-{{ section.settings.select1 }}">
+							<div class="block-overlay-content">
+								<span class="block-overlay-content-text">{{ section.settings.text1 }}</span>
+							</div>
+						</div>
+					{%- endif -%}
+				{%- endif -%}
+            </a>
+            <a class="block" style="background-image: url('{{ section.settings.image2 | image_url: width: 600 }}')" href="{{ section.settings.link2 }}">
+				{% if section.settings.text2 != blank %}
+					{% if section.settings.checkbox2 %}
+						<div class="block-overlay block-overlay-{{ section.settings.select2 }}">
+							<div class="block-overlay-content">
+								<span class="block-overlay-content-text">{{ section.settings.text2 }}</span>
+							</div>
+						</div>
+					{%- endif -%}
+				{%- endif -%}
+            </a>
+            <a class="block" style="background-image: url('{{ section.settings.image3 | image_url: width: 600 }}')" href="{{ section.settings.link3 }}">
+				{% if section.settings.text3 != blank %}
+					{% if section.settings.checkbox3 %}
+						<div class="block-overlay block-overlay-{{ section.settings.select3 }}">
+							<div class="block-overlay-content">
+								<span class="block-overlay-content-text">{{ section.settings.text3 }}</span>
+							</div>
+						</div>
+					{%- endif -%}
+				{%- endif -%}
+			</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "3x1 Block Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Block 1"
+    },
+    {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link1",
+        "label": "Link"
+    },
+	{
+		"type": "checkbox",
+		"id": "checkbox1",
+		"label": "Show overlay",
+		"default": false
+	},
+	{
+		"type": "select",
+		"id": "select1",
+		"label": "Overlay position",
+		"options": [
+			{
+				"value": "top",
+				"label": "Top"
+			},
+			{
+				"value": "center",
+				"label": "Center"
+			},
+			{
+				"value": "bottom",
+				"label": "Bottom"
+			}
+		],
+		"default": "bottom"
+	},
+	{
+		"type": "text",
+		"id": "text1",
+		"label": "Overlay text"
+	},
+    {
+        "type": "header",
+        "content": "Block 2"
+    },
+    {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link2",
+        "label": "Link"
+    },
+	{
+		"type": "checkbox",
+		"id": "checkbox2",
+		"label": "Show overlay",
+		"default": false
+	},
+	{
+		"type": "select",
+		"id": "select2",
+		"label": "Overlay position",
+		"options": [
+			{
+				"value": "top",
+				"label": "Top"
+			},
+			{
+				"value": "center",
+				"label": "Center"
+			},
+			{
+				"value": "bottom",
+				"label": "Bottom"
+			}
+		],
+		"default": "bottom"
+	},
+	{
+		"type": "text",
+		"id": "text2",
+		"label": "Overlay text"
+	},
+    {
+        "type": "header",
+        "content": "Block 3"
+    },
+    {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Choose an image"
+    },
+    {
+        "type": "url",
+        "id": "link3",
+        "label": "Link"
+    },
+	{
+		"type": "checkbox",
+		"id": "checkbox3",
+		"label": "Show overlay",
+		"default": false
+	},
+	{
+		"type": "select",
+		"id": "select3",
+		"label": "Overlay position",
+		"options": [
+			{
+				"value": "top",
+				"label": "Top"
+			},
+			{
+				"value": "center",
+				"label": "Center"
+			},
+			{
+				"value": "bottom",
+				"label": "Bottom"
+			}
+		],
+		"default": "bottom"
+	},
+	{
+		"type": "text",
+		"id": "text3",
+		"label": "Overlay text"
+	}
+  ],
+  "presets": [
+    {
+      "name": "3x1 Block Grid"
+    }
+  ]
+}
+{% endschema %}

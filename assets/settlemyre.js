@@ -113,11 +113,11 @@ try {
         const paraA = regionA.querySelector('.para');
         const paraB = regionB.querySelector('.para');
 
-        headerA.textContent = itemA.title;
-        headerB.textContent = itemB.title;
+        // headerA.textContent = itemA.title;
+        // headerB.textContent = itemB.title;
 
-        paraA.textContent = itemA.content;
-        paraB.textContent = itemB.content;
+        // paraA.textContent = itemA.content;
+        // paraB.textContent = itemB.content;
 
         if (itemA.image.src) {
             const img = document.createElement('img');
@@ -174,52 +174,52 @@ try {
         };
 
         let grids = [
-            newGrid(
-                '.beautify__section--3x1grid',
-                '3x1_config',
-                (data, child) => {
-                    const image_url = data['image_url'];
-                    const href = data['href'];
-                    const target = data['target'];
-                    const caption = data['caption'];
-                    const showCaption = caption['show'];
-                    const text = caption['text'];
-                    const position = caption['position'];
-                    const alt = data['alt'];
+            // newGrid(
+            //     '.beautify__section--3x1grid',
+            //     '3x1_config',
+            //     (data, child) => {
+            //         const image_url = data['image_url'];
+            //         const href = data['href'];
+            //         const target = data['target'];
+            //         const caption = data['caption'];
+            //         const showCaption = caption['show'];
+            //         const text = caption['text'];
+            //         const position = caption['position'];
+            //         const alt = data['alt'];
 
-                    child.setAttribute('title', alt);
+            //         child.setAttribute('title', alt);
 
-                    child.style.backgroundImage = `url("${image_url}")`;
-                    child.setAttribute('href', href);
-                    if (target != null) child.setAttribute('target', target);
+            //         child.style.backgroundImage = `url("${image_url}")`;
+            //         child.setAttribute('href', href);
+            //         if (target != null) child.setAttribute('target', target);
 
-                    if (showCaption) {
-                        const overlay = document.createElement('div');
-                        overlay.className = `block-overlay block-overlay-${position}`;
+            //         if (showCaption) {
+            //             const overlay = document.createElement('div');
+            //             overlay.className = `block-overlay block-overlay-${position}`;
 
-                        const overlayContent = document.createElement('div');
-                        overlayContent.className = 'block-overlay-content';
-                        overlayContent.textContent = text;
+            //             const overlayContent = document.createElement('div');
+            //             overlayContent.className = 'block-overlay-content';
+            //             overlayContent.textContent = text;
 
-                        overlay.appendChild(overlayContent);
-                        child.appendChild(overlay);
-                    }
-                }
-            ),
-            newGrid(
-                '.beautify__section--blocks',
-                'blocks_config',
-                (data, child) => {
-                    const image_url = data['image_url'];
-                    const href = data['href'];
-                    const alt = data['alt'];
+            //             overlay.appendChild(overlayContent);
+            //             child.appendChild(overlay);
+            //         }
+            //     }
+            // ),
+            // newGrid(
+            //     '.beautify__section--blocks',
+            //     'blocks_config',
+            //     (data, child) => {
+            //         const image_url = data['image_url'];
+            //         const href = data['href'];
+            //         const alt = data['alt'];
 
-                    child.setAttribute('title', alt);
+            //         child.setAttribute('title', alt);
 
-                    child.style.backgroundImage = `url("${image_url}")`;
-                    child.setAttribute('href', href);
-                }
-            ),
+            //         child.style.backgroundImage = `url("${image_url}")`;
+            //         child.setAttribute('href', href);
+            //     }
+            // ),
             newGrid(
                 '.beautify__section--4x2grid',
                 '4x2_config',
@@ -348,29 +348,6 @@ try {
 } catch (e) {
     console.log(e);
 }
-
-/*
-
-.list-menu--inline li:has(a[href*='/collections/on-sale']):before {
-    content: 'SALE!';
-    display: block;
-    color: #ff4500;
-    background-color: #eee;
-    font-size: 0.8rem;
-    border-radius: 999px;
-    padding: 2px 8px;
-    font-weight: 700;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin: 0 auto;
-    -webkit-transform: translateY(11px);
-    -ms-transform: translateY(11px);
-    transform: translateY(11px);
-    font-family: serif;
-}
-
-*/
 
 // Navbar Hotlinks
 try {
@@ -549,22 +526,3 @@ try {
 } catch (e) {
     console.log(e);
 }
-
-// const _newstyle = `
-// .slideshow__text.banner__box.content-container {
-//     background-color: rgba(255, 255, 255, 0.5) !important;
-//     backdrop-filter: blur(5px) saturate(180%) !important;
-//     border-radius: 1rem !important;
-// }
-// @media (max-width: 670px) {
-//     .slideshow__text.banner__box.content-container {
-//         border-radius: 0 !important;
-//     }
-// }
-// `;
-
-// document
-//     .querySelectorAll('.slideshow__text.banner__box.content-container')
-//     .forEach((el) => {
-//         el.style.backdropFilter = 'blur(5px) saturate(180%)';
-//     });

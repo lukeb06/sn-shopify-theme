@@ -1,0 +1,96 @@
+{% comment %} {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div> {% endcomment %}
+
+
+<div class="beautify__section beautify__section--header-grid beautify__section--displayType-carousel">
+  <div class="container">
+      <div class="home-below-grid-wrapper">
+          <div class="grid-region region-a">
+              <div>
+                  <h1>{{ section.settings.title1 | escape }}</h1>
+				  <span>{{ section.settings.paragraph1 }}</span>
+				  <img src="{{ section.settings.image | image_url: width: 600 }}" width="" height="" alt="" style="margin-top: 0.5rem" />
+              </div>
+          </div>
+          <div class="grid-region region-b">
+              <div>
+                  <h2>{{ section.settings.title2 | escape }}</h2>
+                  <span>{{ section.settings.paragraph2 }}</span>
+              </div>
+          </div>
+          <div class="grid-region region-c"></div>
+      </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "H1 Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+	{
+		"type": "header",
+		"content": "Left",
+	},
+	{
+		"type": "text",
+		"id": "title1",
+		"label": "Title"
+	},
+	{
+		"type": "richtext",
+		"id": "paragraph1",
+		"label": "Paragraph"
+	},
+	{
+		"type": "image_picker",
+		"id": "image",
+		"label": "Choose an image"
+	},
+	{
+		"type": "header",
+		"content": "Top Right",
+	},
+	{
+		"type": "text",
+		"id": "title2",
+		"label": "Title"
+	},
+	{
+		"type": "richtext",
+		"id": "paragraph2",
+		"label": "Paragraph"
+	},
+	{
+		"type": "header",
+		"content": "Bottom Right",
+	},
+	{
+		"type": "paragraph",
+		"content": "Any section *below this section* will be displayed in the bottom right block."
+	}
+  ],
+  "presets": [
+    {
+      "name": "H1 Grid"
+    }
+  ]
+}
+{% endschema %}
