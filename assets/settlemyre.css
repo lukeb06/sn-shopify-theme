@@ -1133,3 +1133,103 @@ media-gallery {
 .desktop-only.product__description {
     margin-top: 6rem;
 }
+
+.productView-pickup {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-top: 2rem;
+}
+
+.productView-pickup.pickup-hide {
+    display: none;
+}
+
+@media (min-width: 801px) {
+    .productView-pickup {
+        width: 75%;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1261px) {
+    .productView-pickup {
+        width: 50%;
+    }
+}
+
+.productView-pickup h1,
+.productView-pickup h2,
+.productView-pickup h3 {
+    all: unset;
+    font-family: inherit;
+}
+
+.productView-pickup h3 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.productView-pickup > h3 {
+    font-weight: 700;
+}
+
+.productView-pickup .sections {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.productView-pickup .sections .section-middle {
+    display: block;
+    border-top: dashed 2px #d3d3d3;
+}
+
+.productView-pickup .sections .section h1 {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.productView-pickup .sections .section h2 {
+    font-size: 1rem;
+    display: block;
+}
+
+.productView-pickup .sections .section h3 {
+    text-align: left;
+}
+
+.productView-pickup .sections .section.section-ends {
+    width: 100%;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 35% 65%;
+}
+
+.productView-pickup .sections .section.section-ends .sub-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.productView-pickup .sections .section.section-ends .sub-section-icon {
+    padding: 1rem;
+}
