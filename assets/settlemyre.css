@@ -1013,7 +1013,7 @@
     z-index: -1;
 }
 @media (max-width: 670px) {
-    .slideshow__text.banner__box.content-container:before {
+    .slideshow__text.banner__box.content-container::before {
         border-radius: 0;
     }
 }
