@@ -762,7 +762,7 @@
             {% assign metafields = product.metafields.shopify %}
 
             {% for metafield in metafields %}
-              <div>{{ metafield }}</div>
+              <div>{{ metafield | escape | split: "[" | last | split: "," | first | replace: '-', " " | escape | replace: "quot;", "" | replace: "&amp;", "" | capitalize }}</div>
             {% endfor %}
 
             {%  for metaobject in product.metafields.shopify.plant-characteristics.value %}
