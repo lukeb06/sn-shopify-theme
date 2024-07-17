@@ -57,6 +57,15 @@
           "type": "description",
           "settings": {
           }
+        },
+        "collapsible_tab_jyVtqe": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Read more...",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -68,10 +77,11 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "collapsible_tab_jyVtqe"
       ],
       "settings": {
-        "enable_sticky_info": false,
+        "enable_sticky_info": true,
         "color_scheme": "scheme-1",
         "media_size": "small",
         "constrain_to_viewport": false,

@@ -527,3 +527,255 @@ try {
 } catch (e) {
     console.log(e);
 }
+/*
+// Product Description Resize
+try {
+    function onResize() {
+        const description = document.querySelector(
+            '.product__description.desktop-only'
+        );
+        const product__info_container = document.querySelector(
+            '.product__info-container'
+        );
+
+        const mobileDescription = document.querySelector(
+            '.product__description.mobile-only'
+        );
+
+        if (!description && !mobileDescription)
+            throw new Error('No description');
+        if (!product__info_container)
+            throw new Error('No product__info_container');
+
+        if (window.innerWidth < 750) {
+            onMobile();
+        } else {
+            onDesktop();
+        }
+
+        ///////////////
+        // Functions //
+        ///////////////
+        function getHeight(el) {
+            return el.getBoundingClientRect().height;
+        }
+
+        function getStartY(el) {
+            return el.getBoundingClientRect().top;
+        }
+
+        function onMobile() {
+            const tagLine = mobileDescription.children[0];
+
+            const tagLineHeight = getHeight(tagLine);
+
+            mobileDescription.style.height = `${tagLineHeight + 50}px`;
+            mobileDescription.style.overflowY = 'hidden';
+
+            addViewMoreButton();
+
+            function addViewMoreButton() {
+                try {
+                    const viewMoreButton = mobileDescription.querySelector(
+                        '.product__description-view-more'
+                    );
+                    if (viewMoreButton) return;
+                } catch (e) {}
+
+                const viewMoreButton = document.createElement('a');
+                viewMoreButton.href = '#';
+                viewMoreButton.innerHTML = 'Read more...';
+                viewMoreButton.addEventListener('click', () => {
+                    mobileDescription.style.height = 'auto';
+                    mobileDescription.style.overflowY = 'visible';
+                });
+
+                mobileDescription.style.position = 'relative';
+
+                const descriptionBottomContainer =
+                    document.createElement('div');
+                descriptionBottomContainer.style.position = 'absolute';
+                descriptionBottomContainer.style.bottom = '0';
+                descriptionBottomContainer.style.left = '0';
+                descriptionBottomContainer.style.right = '0';
+                descriptionBottomContainer.style.height = '50px';
+                descriptionBottomContainer.style.backgroundColor = '#fff';
+                descriptionBottomContainer.classList.add(
+                    'product__description-view-more'
+                );
+
+                descriptionBottomContainer.appendChild(viewMoreButton);
+                mobileDescription.appendChild(descriptionBottomContainer);
+
+                // Event Listeners
+
+                viewMoreButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    mobileDescription.style.height = 'auto';
+                    mobileDescription.style.overflowY = 'visible';
+
+                    descriptionBottomContainer.remove();
+                });
+            }
+
+            if (window.LAST_P_RESIZE == 'mobile') return;
+        }
+
+        function onDesktop() {
+            if (!window.SIZE_DESC_DISABLE) resizeDescriptionToFitProductInfo();
+            if (!window.SIZE_DESC_DISABLE) addViewMoreButton();
+
+            function resizeDescriptionToFitProductInfo() {
+                const descriptionHeight = getHeight(description);
+                const product__info_containerHeight = getHeight(
+                    product__info_container
+                );
+
+                const startHeight = getStartY(product__info_container);
+                const descTop = getStartY(description);
+
+                const topDiff = Math.abs(descTop - startHeight);
+
+                const newHeight = Math.abs(
+                    product__info_containerHeight - topDiff
+                );
+
+                description.style.height = `${newHeight}px`;
+                description.style.overflowY = 'hidden';
+            }
+
+            function addViewMoreButton() {
+                try {
+                    const viewMoreButton = description.querySelector(
+                        '.product__description-view-more'
+                    );
+                    if (viewMoreButton) return;
+                } catch (e) {}
+
+                const viewMoreButton = document.createElement('a');
+                viewMoreButton.href = '#';
+                viewMoreButton.innerHTML = 'Read more...';
+                viewMoreButton.addEventListener('click', () => {
+                    description.style.height = 'auto';
+                    description.style.overflowY = 'visible';
+                });
+
+                description.style.position = 'relative';
+
+                const descriptionBottomContainer =
+                    document.createElement('div');
+                descriptionBottomContainer.style.position = 'absolute';
+                descriptionBottomContainer.style.bottom = '0';
+                descriptionBottomContainer.style.left = '0';
+                descriptionBottomContainer.style.right = '0';
+                descriptionBottomContainer.style.height = '50px';
+                descriptionBottomContainer.style.backgroundColor = '#fff';
+                descriptionBottomContainer.classList.add(
+                    'product__description-view-more'
+                );
+
+                descriptionBottomContainer.appendChild(viewMoreButton);
+                description.appendChild(descriptionBottomContainer);
+
+                // Event Listeners
+
+                viewMoreButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    description.style.height = 'auto';
+                    description.style.overflowY = 'visible';
+
+                    window.SIZE_DESC_DISABLE = true;
+                    descriptionBottomContainer.remove();
+                });
+            }
+
+            if (window.LAST_P_RESIZE == 'desktop') return;
+        }
+    }
+
+    window.addEventListener('resize', onResize);
+    onResize();
+} catch (e) {
+    console.warn("Couldn't load product view");
+    console.log(e);
+}
+*/
+// Product Description Accordion
+try {
+    let CHILDREN = Array.from(
+        document.querySelectorAll('.product__description')
+    ).map((v) => [...v.children]);
+
+    function onResize() {
+        document.querySelectorAll('.PRE_VIEW').forEach((v) => v.remove());
+
+        const descriptions = document.querySelectorAll('.product__description');
+
+        descriptions.forEach((description, dIndex) => {
+            const accordion = description.nextElementSibling;
+            if (!accordion.classList.contains('product__accordion')) return;
+
+            if (!description || !accordion) throw new Error('No description');
+
+            function grabDescription() {
+                const descriptionItems = Array.from(CHILDREN[dIndex]).filter(
+                    (v, i) => i > 0
+                );
+
+                const accordionContent = accordion.querySelector(
+                    '.accordion__content'
+                );
+
+                descriptionItems.forEach((item) => {
+                    accordionContent.innerHTML = '';
+
+                    accordionContent.appendChild(item);
+                });
+
+                let preview = document.createElement('p');
+                preview.innerHTML = getLinesOfText(
+                    accordionContent.textContent,
+                    description,
+                    3
+                );
+                preview.classList.add('PRE_VIEW');
+                description.appendChild(preview);
+
+                return;
+            }
+
+            grabDescription();
+        });
+    }
+
+    window.addEventListener('resize', onResize);
+    onResize();
+} catch (e) {
+    console.warn("Couldn't load product view");
+    console.log(e);
+}
+
+function getRemSize() {
+    return parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
+function getLinesOfText(text, container, lines) {
+    return `${text
+        .split(' ')
+        .slice(
+            0,
+            Math.ceil(
+                (container.getBoundingClientRect().width /
+                    getRemSize() /
+                    (text
+                        .replaceAll(' ', '')
+                        .replaceAll('.', '')
+                        .replaceAll(',', '').length /
+                        text.split(' ').length)) *
+                    lines
+            )
+        )
+        .join(' ')}...`.replaceAll('....', '...');
+}

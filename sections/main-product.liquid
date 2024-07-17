@@ -86,6 +86,25 @@
                   {{ product.description }}
                 </div>
               {%- endif -%}
+            
+            {%- when 'collapsible_tab' -%}
+              <div class="product__accordion desktop-only accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <summary>
+                    <div class="summary__title">
+                      {% render 'icon-accordion', icon: block.settings.icon %}
+                      <h2 class="h4 accordion__title inline-richtext">
+                        {{ block.settings.heading | default: block.settings.page.title | escape }}
+                      </h2>
+                    </div>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                    {{ block.settings.content }}
+                    {{ block.settings.page.content }}
+                  </div>
+                </details>
+              </div>
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -225,7 +244,7 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
-                <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                <div class="product__accordion mobile-only accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
                     <summary>
                       <div class="summary__title">
@@ -674,7 +693,7 @@
             {% render 'icon-arrow' %}
           </a>
 
-          {% comment %} <div class="productView-options productView-pickup">
+          <div class="productView-options productView-pickup">
             <div class="sections">
                 <div class="section section-ends">
                     
@@ -753,36 +772,37 @@
             </div>
             <h3>*Selection made at checkout*</h3>
             <h3>WE DO NOT SHIP</h3>
-          </div> {% endcomment %}
+          </div>
 
           <div class="productView-specs">
             <h1>Specifications</h1>
 
-            <div>{{product.metafields.shopify.plant-characteristics.value }}</div>
             {% assign metafields = product.metafields.shopify %}
 
-            {% for metafield in metafields %}
-              <div>{{ metafield | escape | split: "[" | last | split: "," | first | replace: '-', " " | escape | replace: "quot;", "" | replace: "&amp;", "" | capitalize }}</div>
-            {% endfor %}
+            <style>
+              .table-spec {
+                padding-left: 1rem;
+              }
+            </style>
 
-            {%  for metaobject in product.metafields.shopify.plant-characteristics.value %}
-              <div class="spec">
-                <h2>{{ metaobject.label }}</h2>
-              </div>
-            {% endfor %}
-
-            {% comment %} <table>
-              <tbody>
-                {% for metafield in product.metafields.variants %}
+            <table>
+                {% for metafield in metafields %}
+                  {% assign meta = metafield | escape | split: "[" | last | split: "," | first | escape | replace: "quot;", "" | replace: "&amp;", "" %}
+                  {% assign metakey = meta | replace: '-', " " | capitalize %}
+                  {% assign metavalues = metafields[meta].value %}
 
                   <tr>
-                    <td>{{ metafield.name }}</td>
-                    <td>{{ metafield.value }}</td>
+                    <td>{{ metakey }}</td>
+                    <td>
+                      <ul class="table-spec">
+                        {%  for metaobject in metavalues %}
+                          <li>{{ metaobject.label }}</li>
+                        {% endfor %}
+                      </ul>
+                    </td>
                   </tr>
-
                 {% endfor %}
-              </tbody>
-            </table> {% endcomment %}
+            </table>
           </div>
         </section>
       </div>
