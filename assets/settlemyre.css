@@ -1246,11 +1246,11 @@ media-gallery {
     z-index: 3;
 }
 
-.product__description:has(.product__description-view-more) {
+.product__description {
     position: relative;
 }
 
-.product__description:has(.product__description-view-more)::after {
+.product__description::after {
     content: '';
     position: absolute;
     left: 0;
