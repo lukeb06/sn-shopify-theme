@@ -1,3 +1,7 @@
+const D = ([s]) => document.querySelector(s);
+const Ds = ([s]) => Array.from(document.querySelectorAll(s));
+const CE = ([s]) => document.createElement(s);
+
 // Get Files from NGROK
 try {
     window.loadJSON = (path) => {
@@ -41,7 +45,7 @@ try {
             scrolling_items,
         } = content;
 
-        const shopSelect = document.querySelector('.shop-select');
+        const shopSelect = D`.shop-select`;
         const ssHeader = shopSelect.querySelector('.ss-header');
         const ssItems = shopSelect.querySelector('.ss-items');
 
@@ -334,7 +338,7 @@ try {
 
 // Navbar
 try {
-    const ul = document.querySelector('.list-menu--inline');
+    const ul = D`.list-menu--inline`;
     const li = Array.from(ul.querySelectorAll('li'));
 
     const maxWidth = Math.ceil(
@@ -347,6 +351,7 @@ try {
 
     ul.classList.remove('chidden');
 } catch (e) {
+    console.warn('Test');
     console.log(e);
 }
 
@@ -362,9 +367,7 @@ try {
 
     window.loadJSON('config/navbar-hotlinks.json').then((hotlinks) => {
         hotlinks.forEach((hotlink) => {
-            const li = Array.from(
-                document.querySelectorAll('.list-menu--inline li')
-            ).find((li) => {
+            const li = Ds`.list-menu--inline li`.find((li) => {
                 return li.innerText
                     .toLowerCase()
                     .includes(hotlink.find.toLowerCase());
@@ -410,57 +413,50 @@ try {
 try {
     console.log('Landscape Design Init');
 
-    if (document.querySelector('.landscape-page') == null)
-        throw 'Not a landscape design page';
+    if (D`.landscape-page` == null) throw 'Not a landscape design page';
 
-    Array.from(document.querySelectorAll('.landscape-page .carousel')).forEach(
-        (carousel, carouselIndex) => {
-            const images = Array.from(
-                carousel.querySelectorAll('.carousel-image')
-            );
-            const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
-            const arrows = Array.from(
-                carousel.querySelectorAll('.carousel-arrow')
-            );
-            const captions = Array.from(
-                carousel.querySelectorAll('.carousel-caption')
-            );
+    Ds`.landscape-page .carousel`.forEach((carousel, carouselIndex) => {
+        const images = Array.from(carousel.querySelectorAll('.carousel-image'));
+        const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+        const arrows = Array.from(carousel.querySelectorAll('.carousel-arrow'));
+        const captions = Array.from(
+            carousel.querySelectorAll('.carousel-caption')
+        );
 
-            let activeIndex = 0;
+        let activeIndex = 0;
 
-            const setActive = (index) => {
-                images[activeIndex].classList.remove('active');
-                dots[activeIndex].classList.remove('active');
+        const setActive = (index) => {
+            images[activeIndex].classList.remove('active');
+            dots[activeIndex].classList.remove('active');
 
-                images[index].classList.add('active');
-                dots[index].classList.add('active');
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
 
-                try {
-                    captions[activeIndex].classList.remove('active');
-                    captions[index].classList.add('active');
-                } catch (e) {
-                    console.warn('No captions found');
-                }
+            try {
+                captions[activeIndex].classList.remove('active');
+                captions[index].classList.add('active');
+            } catch (e) {
+                console.warn('No captions found');
+            }
 
-                activeIndex = index;
-            };
+            activeIndex = index;
+        };
 
-            dots.forEach((dot, dotIndex) => {
-                dot.addEventListener('click', () => {
-                    setActive(dotIndex);
-                });
+        dots.forEach((dot, dotIndex) => {
+            dot.addEventListener('click', () => {
+                setActive(dotIndex);
             });
+        });
 
-            arrows.forEach((arrow, arrowIndex) => {
-                arrow.addEventListener('click', () => {
-                    let newIndex = activeIndex + (arrowIndex == 0 ? -1 : 1);
-                    if (newIndex < 0) newIndex = images.length - 1;
-                    if (newIndex >= images.length) newIndex = 0;
-                    setActive(newIndex);
-                });
+        arrows.forEach((arrow, arrowIndex) => {
+            arrow.addEventListener('click', () => {
+                let newIndex = activeIndex + (arrowIndex == 0 ? -1 : 1);
+                if (newIndex < 0) newIndex = images.length - 1;
+                if (newIndex >= images.length) newIndex = 0;
+                setActive(newIndex);
             });
-        }
-    );
+        });
+    });
 } catch (e) {
     console.warn(e);
 }
@@ -468,8 +464,8 @@ try {
 // Landscape Design Popup Button Event Listener Assignment
 try {
     const as = [
-        ...document.querySelectorAll('a[href*="/trigger/landscape-popup"]'),
-        ...document.querySelectorAll('.request-info.contact-button'),
+        ...Ds`a[href*="/trigger/landscape-popup"]`,
+        ...Ds`.request-info.contact-button`,
     ];
 
     as.forEach((a) => {
@@ -486,7 +482,7 @@ try {
 
 // Email Subscription Form
 try {
-    const emailSubForm = document.querySelector('#emailSubform');
+    const emailSubForm = D`#emailSubform`;
     emailSubForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -704,14 +700,11 @@ try {
 */
 // Product Description Accordion
 try {
-    let CHILDREN = Array.from(
-        document.querySelectorAll('.product__description')
-    ).map((v) => [...v.children]);
+    const descriptions = Ds`.product__description`;
+    let CHILDREN = descriptions.map((v) => [...v.children]);
 
     function onResize() {
-        document.querySelectorAll('.PRE_VIEW').forEach((v) => v.remove());
-
-        const descriptions = document.querySelectorAll('.product__description');
+        Ds`.PRE_VIEW`.forEach((v) => v.remove());
 
         descriptions.forEach((description, dIndex) => {
             const accordion = description.nextElementSibling;
@@ -778,4 +771,89 @@ function getLinesOfText(text, container, lines) {
             )
         )
         .join(' ')}...`.replaceAll('....', '...');
+}
+
+try {
+    if (window.innerWidth > 750) throw new Error('Not Mobile');
+
+    function onResize() {
+        const quantityButtonsWrapper = D`.quantity__buttons_wrapper`;
+        const productFormButtons = D`.product-form__buttons`;
+        const quantityInput = D`.product-form__quantity`;
+
+        let topWrapper = CE`div`;
+        topWrapper.classList.add('product-top__wrapper');
+
+        topWrapper.appendChild(quantityInput);
+        topWrapper.appendChild(productFormButtons.querySelector('button'));
+
+        productFormButtons.children[0].before(topWrapper);
+
+        document.body.appendChild(quantityButtonsWrapper);
+
+        window.showQuantityButtons = () => {
+            quantityButtonsWrapper.classList.remove('hide');
+        };
+
+        window.hideQuantityButtons = () => {
+            quantityButtonsWrapper.classList.add('hide');
+        };
+
+        const onScroll = () => {
+            const scrollTop = getScrollTop();
+            const scrollHeight = getScrollHeight() - window.innerHeight;
+
+            const threshold = 5;
+
+            // Hide the quantity buttons if the user is within 5% of the bottom of the page
+            if (scrollTop > scrollHeight * (1 - threshold / 100)) {
+                quantityButtonsWrapper.classList.add('hide');
+            } else {
+                // Hide the quantity buttons if the user is within 5% of the top of the page
+                if (scrollTop < window.innerHeight * (threshold / 100)) {
+                    quantityButtonsWrapper.classList.add('hide');
+                } else {
+                    quantityButtonsWrapper.classList.remove('hide');
+                }
+            }
+        };
+
+        onScroll();
+        window.addEventListener('scroll', onScroll);
+    }
+
+    onResize();
+    // window.addEventListener('resize', onResize);
+} catch (e) {
+    console.log(e);
+}
+
+function getScrollLeft() {
+    return (
+        window.pageXOffset ||
+        (document.documentElement || document.body.parentNode || document.body)
+            .scrollLeft
+    );
+}
+
+function getScrollTop() {
+    return (
+        window.pageYOffset ||
+        (document.documentElement || document.body.parentNode || document.body)
+            .scrollTop
+    );
+}
+
+function getScrollHeight() {
+    return (
+        document.documentElement.scrollHeight ||
+        document.body.parentNode.scrollHeight
+    );
+}
+
+function getScrollWidth() {
+    return (
+        document.documentElement.scrollWidth ||
+        document.body.parentNode.scrollWidth
+    );
 }
