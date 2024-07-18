@@ -1353,3 +1353,29 @@ quantity-input::after {
         width: 30rem;
     }
 }
+
+@media (min-width: 1129px) {
+    slider-component.thumbnail-slider {
+        transform: rotate(90deg);
+        position: absolute;
+        width: 100%;
+        right: calc(50% + 65px);
+        top: calc(50% - 9%);
+    }
+
+    slider-component.thumbnail-slider img {
+        transform: rotate(-90deg);
+    }
+
+    media-gallery {
+        /* margin: 0  !important; */
+        max-width: 530px !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    media-gallery {
+        margin: 0 0 0 auto !important;
+        max-width: 530px !important;
+    }
+}
