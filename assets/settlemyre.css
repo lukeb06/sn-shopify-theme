@@ -1264,3 +1264,23 @@ media-gallery {
         rgba(255, 255, 255, 1) 100%
     );
 }
+
+@media (max-width: 749px) {
+    .quantity__buttons_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-color: red;
+        position: fixed;
+        bottom: 2rem;
+        left: 0;
+        width: 100vw;
+        height: fit-content;
+        padding: 1rem;
+        padding-bottom: 3rem;
+
+        z-index: 99;
+    }
+}

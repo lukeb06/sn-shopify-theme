@@ -728,9 +728,9 @@ try {
                     '.accordion__content'
                 );
 
-                descriptionItems.forEach((item) => {
-                    accordionContent.innerHTML = '';
+                accordionContent.innerHTML = '';
 
+                descriptionItems.forEach((item) => {
                     accordionContent.appendChild(item);
                 });
 
