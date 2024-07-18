@@ -774,7 +774,10 @@ function getLinesOfText(text, container, lines) {
 }
 
 try {
-    if (window.innerWidth > 750) throw new Error('Not Mobile');
+    if (window.innerWidth > 750) {
+        desktopOnly();
+        throw new Error('Not Mobile');
+    }
 
     function onResize() {
         const quantityButtonsWrapper = D`.quantity__buttons_wrapper`;
@@ -820,6 +823,19 @@ try {
 
         onScroll();
         window.addEventListener('scroll', onScroll);
+    }
+
+    function desktopOnly() {
+        const productFormButtons = D`.product-form__buttons`;
+        const quantityInput = D`.product-form__quantity`;
+
+        let topWrapper = CE`div`;
+        topWrapper.classList.add('product-top__wrapper');
+
+        topWrapper.appendChild(quantityInput);
+        topWrapper.appendChild(productFormButtons.querySelector('button'));
+
+        productFormButtons.children[0].before(topWrapper);
     }
 
     onResize();
