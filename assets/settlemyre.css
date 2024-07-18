@@ -1350,4 +1350,8 @@ media-gallery {
     .product__media-wrapper {
         max-width: unset !important;
     }
+
+    .product__info-container {
+        max-width: 30rem;
+    }
 }
