@@ -275,13 +275,14 @@
 @media (max-width: 749px) {
     .beautify__section--blocks .block-wrapper {
         position: relative;
-        top: -28px;
+        top: -24px;
     }
 
     .beautify__section--blocks .block-wrapper .block:first-child {
         margin-left: -9px;
         margin-right: -9px;
         border-radius: 0;
+        box-shadow: none;
     }
 }
 
@@ -1096,16 +1097,16 @@
 @media (max-width: 670px) {
     .shopify-section:has(.slideshow__text)::after {
         background: linear-gradient(
-                to bottom,
+                to top,
                 rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 97%,
+                rgba(255, 255, 255, 0) 98%,
                 rgba(255, 255, 255, 1) 100%
             ),
             linear-gradient(
-                to top,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 95%,
-                rgba(255, 255, 255, 1) 100%
+                to bottom,
+                #16501400 0%,
+                #16501400 98%,
+                #165014ff 100%
             );
     }
 }
