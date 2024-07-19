@@ -721,7 +721,9 @@ try {
         const url = `https://termite-enormous-hornet.ngrok-free.app/qr/${params}`;
         try {
             const response = await fetch(url, {
-                headers: { 'ngrok-skip-browser-warning': 'skip' },
+                headers: {
+                    'ngrok-skip-browser-warning': 'skip',
+                },
             });
 
             const data = await response.json();
