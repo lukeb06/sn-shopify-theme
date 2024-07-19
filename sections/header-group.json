@@ -33,7 +33,7 @@
         "announcement_ApTagb"
       ],
       "custom_css": [
-        "p {margin-top: 6px;}"
+        "p {margin-top: 2px;}"
       ],
       "settings": {
         "color_scheme": "scheme-d1d5c835-e65b-4a54-85c2-0e9a052bdeba",

@@ -1,8 +1,20 @@
-const D = ([s]) => document.querySelector(s);
-const Ds = ([s]) => Array.from(document.querySelectorAll(s));
-const CE = ([s]) => document.createElement(s);
+const el = ([s]) => document.querySelector(s);
+const els = ([s]) => Array.from(document.querySelectorAll(s));
+const mkel = ([s]) => document.createElement(s);
 
-// Get Files from NGROK
+Element.prototype.el = function ([s]) {
+    return this.querySelector(s);
+};
+
+Element.prototype.els = function ([s]) {
+    return Array.from(this.querySelectorAll(s));
+};
+
+Element.prototype.mkel = function ([s]) {
+    return this.appendChild(mkel(s));
+};
+
+// Get JSON Files from NGROK
 try {
     window.loadJSON = (path) => {
         return new Promise((resolve, reject) => {
@@ -45,7 +57,7 @@ try {
             scrolling_items,
         } = content;
 
-        const shopSelect = D`.shop-select`;
+        const shopSelect = el`.shop-select`;
         const ssHeader = shopSelect.querySelector('.ss-header');
         const ssItems = shopSelect.querySelector('.ss-items');
 
@@ -338,7 +350,7 @@ try {
 
 // Navbar
 try {
-    const ul = D`.list-menu--inline`;
+    const ul = el`.list-menu--inline`;
     const li = Array.from(ul.querySelectorAll('li'));
 
     const maxWidth = Math.ceil(
@@ -367,7 +379,7 @@ try {
 
     window.loadJSON('config/navbar-hotlinks.json').then((hotlinks) => {
         hotlinks.forEach((hotlink) => {
-            const li = Ds`.list-menu--inline li`.find((li) => {
+            const li = els`.list-menu--inline li`.find((li) => {
                 return li.innerText
                     .toLowerCase()
                     .includes(hotlink.find.toLowerCase());
@@ -413,9 +425,9 @@ try {
 try {
     console.log('Landscape Design Init');
 
-    if (D`.landscape-page` == null) throw 'Not a landscape design page';
+    if (el`.landscape-page` == null) throw 'Not a landscape design page';
 
-    Ds`.landscape-page .carousel`.forEach((carousel, carouselIndex) => {
+    els`.landscape-page .carousel`.forEach((carousel, carouselIndex) => {
         const images = Array.from(carousel.querySelectorAll('.carousel-image'));
         const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
         const arrows = Array.from(carousel.querySelectorAll('.carousel-arrow'));
@@ -464,8 +476,8 @@ try {
 // Landscape Design Popup Button Event Listener Assignment
 try {
     const as = [
-        ...Ds`a[href*="/trigger/landscape-popup"]`,
-        ...Ds`.request-info.contact-button`,
+        ...els`a[href*="/trigger/landscape-popup"]`,
+        ...els`.request-info.contact-button`,
     ];
 
     as.forEach((a) => {
@@ -482,7 +494,7 @@ try {
 
 // Email Subscription Form
 try {
-    const emailSubForm = D`#emailSubform`;
+    const emailSubForm = el`#emailSubform`;
     emailSubForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -523,192 +535,25 @@ try {
 } catch (e) {
     console.log(e);
 }
-/*
-// Product Description Resize
-try {
-    function onResize() {
-        const description = document.querySelector(
-            '.product__description.desktop-only'
-        );
-        const product__info_container = document.querySelector(
-            '.product__info-container'
-        );
 
-        const mobileDescription = document.querySelector(
-            '.product__description.mobile-only'
-        );
-
-        if (!description && !mobileDescription)
-            throw new Error('No description');
-        if (!product__info_container)
-            throw new Error('No product__info_container');
-
-        if (window.innerWidth < 750) {
-            onMobile();
-        } else {
-            onDesktop();
-        }
-
-        ///////////////
-        // Functions //
-        ///////////////
-        function getHeight(el) {
-            return el.getBoundingClientRect().height;
-        }
-
-        function getStartY(el) {
-            return el.getBoundingClientRect().top;
-        }
-
-        function onMobile() {
-            const tagLine = mobileDescription.children[0];
-
-            const tagLineHeight = getHeight(tagLine);
-
-            mobileDescription.style.height = `${tagLineHeight + 50}px`;
-            mobileDescription.style.overflowY = 'hidden';
-
-            addViewMoreButton();
-
-            function addViewMoreButton() {
-                try {
-                    const viewMoreButton = mobileDescription.querySelector(
-                        '.product__description-view-more'
-                    );
-                    if (viewMoreButton) return;
-                } catch (e) {}
-
-                const viewMoreButton = document.createElement('a');
-                viewMoreButton.href = '#';
-                viewMoreButton.innerHTML = 'Read more...';
-                viewMoreButton.addEventListener('click', () => {
-                    mobileDescription.style.height = 'auto';
-                    mobileDescription.style.overflowY = 'visible';
-                });
-
-                mobileDescription.style.position = 'relative';
-
-                const descriptionBottomContainer =
-                    document.createElement('div');
-                descriptionBottomContainer.style.position = 'absolute';
-                descriptionBottomContainer.style.bottom = '0';
-                descriptionBottomContainer.style.left = '0';
-                descriptionBottomContainer.style.right = '0';
-                descriptionBottomContainer.style.height = '50px';
-                descriptionBottomContainer.style.backgroundColor = '#fff';
-                descriptionBottomContainer.classList.add(
-                    'product__description-view-more'
-                );
-
-                descriptionBottomContainer.appendChild(viewMoreButton);
-                mobileDescription.appendChild(descriptionBottomContainer);
-
-                // Event Listeners
-
-                viewMoreButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    mobileDescription.style.height = 'auto';
-                    mobileDescription.style.overflowY = 'visible';
-
-                    descriptionBottomContainer.remove();
-                });
-            }
-
-            if (window.LAST_P_RESIZE == 'mobile') return;
-        }
-
-        function onDesktop() {
-            if (!window.SIZE_DESC_DISABLE) resizeDescriptionToFitProductInfo();
-            if (!window.SIZE_DESC_DISABLE) addViewMoreButton();
-
-            function resizeDescriptionToFitProductInfo() {
-                const descriptionHeight = getHeight(description);
-                const product__info_containerHeight = getHeight(
-                    product__info_container
-                );
-
-                const startHeight = getStartY(product__info_container);
-                const descTop = getStartY(description);
-
-                const topDiff = Math.abs(descTop - startHeight);
-
-                const newHeight = Math.abs(
-                    product__info_containerHeight - topDiff
-                );
-
-                description.style.height = `${newHeight}px`;
-                description.style.overflowY = 'hidden';
-            }
-
-            function addViewMoreButton() {
-                try {
-                    const viewMoreButton = description.querySelector(
-                        '.product__description-view-more'
-                    );
-                    if (viewMoreButton) return;
-                } catch (e) {}
-
-                const viewMoreButton = document.createElement('a');
-                viewMoreButton.href = '#';
-                viewMoreButton.innerHTML = 'Read more...';
-                viewMoreButton.addEventListener('click', () => {
-                    description.style.height = 'auto';
-                    description.style.overflowY = 'visible';
-                });
-
-                description.style.position = 'relative';
-
-                const descriptionBottomContainer =
-                    document.createElement('div');
-                descriptionBottomContainer.style.position = 'absolute';
-                descriptionBottomContainer.style.bottom = '0';
-                descriptionBottomContainer.style.left = '0';
-                descriptionBottomContainer.style.right = '0';
-                descriptionBottomContainer.style.height = '50px';
-                descriptionBottomContainer.style.backgroundColor = '#fff';
-                descriptionBottomContainer.classList.add(
-                    'product__description-view-more'
-                );
-
-                descriptionBottomContainer.appendChild(viewMoreButton);
-                description.appendChild(descriptionBottomContainer);
-
-                // Event Listeners
-
-                viewMoreButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    description.style.height = 'auto';
-                    description.style.overflowY = 'visible';
-
-                    window.SIZE_DESC_DISABLE = true;
-                    descriptionBottomContainer.remove();
-                });
-            }
-
-            if (window.LAST_P_RESIZE == 'desktop') return;
-        }
-    }
-
-    window.addEventListener('resize', onResize);
-    onResize();
-} catch (e) {
-    console.warn("Couldn't load product view");
-    console.log(e);
-}
-*/
 // Product Description Accordion
 try {
-    const descriptions = Ds`.product__description`;
+    const descriptions = els`.product__description`;
     let CHILDREN = descriptions.map((v) => [...v.children]);
 
     function onResize() {
-        Ds`.PRE_VIEW`.forEach((v) => v.remove());
+        els`.PRE_VIEW`.forEach((v) => v.remove());
 
         descriptions.forEach((description, dIndex) => {
             const accordion = description.nextElementSibling;
             if (!accordion.classList.contains('product__accordion')) return;
+
+            if (CHILDREN[dIndex].length < 2) {
+                accordion.remove();
+                description.classList.add('no-extra-content');
+
+                throw new Error('Not enough content');
+            }
 
             if (!description || !accordion) throw new Error('No description');
 
@@ -750,48 +595,52 @@ try {
     console.log(e);
 }
 
-function getRemSize() {
-    return parseFloat(getComputedStyle(document.documentElement).fontSize);
-}
-
-function getLinesOfText(text, container, lines) {
-    return `${text
-        .split(' ')
-        .slice(
-            0,
-            Math.ceil(
-                (container.getBoundingClientRect().width /
-                    getRemSize() /
-                    (text
-                        .replaceAll(' ', '')
-                        .replaceAll('.', '')
-                        .replaceAll(',', '').length /
-                        text.split(' ').length)) *
-                    lines
-            )
-        )
-        .join(' ')}...`.replaceAll('....', '...');
-}
-
+// Buy Buttons
 try {
     if (window.innerWidth > 750) {
-        desktopOnly();
+        desktopInit();
         throw new Error('Not Mobile');
     }
 
-    function onResize() {
-        const quantityButtonsWrapper = D`.quantity__buttons_wrapper`;
-        const productFormButtons = D`.product-form__buttons`;
-        const quantityInput = D`.product-form__quantity`;
+    desktopInit();
 
-        let topWrapper = CE`div`;
-        topWrapper.classList.add('product-top__wrapper');
+    function onDesktop() {
+        if (window.LAST_RESIZE_BTNS == 'desktop') return;
+        desktopInit();
+        window.LAST_RESIZE_BTNS = 'desktop';
 
-        topWrapper.appendChild(quantityInput);
-        topWrapper.appendChild(productFormButtons.querySelector('button'));
+        console.log('DESKTOP');
 
-        productFormButtons.children[0].before(topWrapper);
+        const productViewPickup = el`.productView-pickup`;
+        const quantityButtonsWrapper = el`.quantity__buttons_wrapper`;
 
+        productViewPickup.before(quantityButtonsWrapper);
+    }
+
+    function onMobile() {
+        if (window.LAST_RESIZE_BTNS == 'mobile') return;
+        window.LAST_RESIZE_BTNS = 'mobile';
+
+        console.log('MOBILE');
+
+        const quantityButtonsWrapper = el`.quantity__buttons_wrapper`;
+        const productFormButtons = el`.product-form__buttons`;
+        const quantityInput = el`.product-form__quantity`;
+
+        // let topWrapper;
+
+        // try {
+        //     topWrapper = el`.product-top__wrapper`;
+        //     if (!topWrapper) throw new Error('No top wrapper');
+        // } catch (e) {
+        //     topWrapper = mkel`div`;
+        //     topWrapper.classList.add('product-top__wrapper');
+
+        //     topWrapper.appendChild(quantityInput);
+        //     topWrapper.appendChild(productFormButtons.querySelector('button'));
+
+        //     productFormButtons.children[0].before(topWrapper);
+        // }
         document.body.appendChild(quantityButtonsWrapper);
 
         window.showQuantityButtons = () => {
@@ -802,7 +651,7 @@ try {
             quantityButtonsWrapper.classList.add('hide');
         };
 
-        const onScroll = () => {
+        window.onScroll = () => {
             const scrollTop = getScrollTop();
             const scrollHeight = getScrollHeight() - window.innerHeight;
 
@@ -825,11 +674,27 @@ try {
         window.addEventListener('scroll', onScroll);
     }
 
-    function desktopOnly() {
-        const productFormButtons = D`.product-form__buttons`;
-        const quantityInput = D`.product-form__quantity`;
+    function onResize() {
+        if (window.innerWidth > 750) {
+            window.removeEventListener('scroll', window.onScroll);
+            window.onScroll = undefined;
+            onDesktop();
+        } else {
+            try {
+                onMobile();
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }
 
-        let topWrapper = CE`div`;
+    function desktopInit() {
+        // onMobile();
+        // onDesktop();
+        const productFormButtons = el`.product-form__buttons`;
+        const quantityInput = el`.product-form__quantity`;
+
+        let topWrapper = mkel`div`;
         topWrapper.classList.add('product-top__wrapper');
 
         topWrapper.appendChild(quantityInput);
@@ -839,9 +704,77 @@ try {
     }
 
     onResize();
-    // window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize);
 } catch (e) {
     console.log(e);
+}
+
+// Landscape Design QR Code
+try {
+    console.log('Landscape Design QR Code');
+    if (!el`.landscape-d-wrapper`) throw 'Not a landscape design page';
+
+    async function logQr() {
+        const urlObj = new URL(window.location.href);
+        const params = urlObj.searchParams.get('qr');
+        if (!params) return;
+        const url = `https://termite-enormous-hornet.ngrok-free.app/qr/${params}`;
+        try {
+            const response = await fetch(url, {
+                headers: { 'ngrok-skip-browser-warning': 'skip' },
+            });
+
+            const data = await response.json();
+            console.log(data);
+        } catch (e) {
+            console.error('Landscape Design QR Code Error');
+            console.error(e);
+        }
+    }
+
+    logQr();
+} catch (e) {
+    console.log(e);
+}
+
+// Change Sold Out Badges to Black
+try {
+    console.log('BADGES');
+    els`.badge`.forEach((badge) => {
+        console.log(
+            badge.textContent.trim().toLowerCase().includes('sold out')
+        );
+        if (badge.textContent.trim().toLowerCase().includes('sold out')) {
+            badge.classList.add('badge--black');
+        }
+    });
+} catch (e) {
+    console.log(e);
+}
+
+// Utility Functions
+
+function getRemSize() {
+    return parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
+function getLinesOfText(text, container, lines) {
+    return `${text
+        .split(' ')
+        .slice(
+            0,
+            Math.ceil(
+                (container.getBoundingClientRect().width /
+                    getRemSize() /
+                    (text
+                        .replaceAll(' ', '')
+                        .replaceAll('.', '')
+                        .replaceAll(',', '').length /
+                        text.split(' ').length)) *
+                    lines
+            )
+        )
+        .join(' ')}...`.replaceAll('....', '...');
 }
 
 function getScrollLeft() {

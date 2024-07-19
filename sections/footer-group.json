@@ -9,7 +9,7 @@
       ],
       "settings": {
         "custom_liquid": "<div class=\"email-wrapper\">\n<form id=\"emailSubform\">\n<label>Subscribe Now!<\/label>\n<div>\n<input type=\"email\" placeholder=\"Enter your email address\"\/>\n<input type=\"submit\" class=\"button button--primary\" \/>\n<\/div>\n<\/form>\n<\/div>",
-        "color_scheme": "",
+        "color_scheme": "scheme-d1d5c835-e65b-4a54-85c2-0e9a052bdeba",
         "padding_top": 8,
         "padding_bottom": 16
       }
@@ -21,7 +21,7 @@
         "newsletter_enable": false,
         "newsletter_heading": "",
         "enable_follow_on_shop": false,
-        "show_social": false,
+        "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,

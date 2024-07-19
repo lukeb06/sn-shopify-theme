@@ -116,12 +116,12 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "automated-collection",
+        "collection": "all",
         "products_to_show": 25,
         "columns_desktop": 6,
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": true,
         "color_scheme": "",
         "image_ratio": "square",
@@ -129,11 +129,11 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 12,
+        "padding_bottom": 24
       }
     },
     "custom_liquid_c6F7xJ": {
@@ -163,10 +163,10 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "automated-collection",
-        "products_to_show": 25,
+        "collection": "all",
+        "products_to_show": 6,
         "columns_desktop": 3,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": false,
         "view_all_style": "link",
         "enable_desktop_slider": true,
@@ -176,21 +176,11 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "settle_landscape_layout_hhAiig": {
-      "type": "settle-landscape-layout",
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
-        "title": "Local Landscape Designers Help Beautify Your Home",
-        "paragraph": "<p>Our dedicated team of landscape designers provide hundreds of designs each year to customers wanting an expert perspective. Work with a team who can quickly produce an amazing solution for your landscape design challenges. No design project is too big or too small.<\/p>",
-        "button_label": "Learn More",
-        "button_link": "\/trigger\/landscape-popup"
       }
     },
     "featured_collection_bwPUeB": {
@@ -201,7 +191,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "automated-collection",
+        "collection": "all",
         "products_to_show": 25,
         "columns_desktop": 6,
         "full_width": false,
@@ -214,11 +204,21 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "settle_landscape_layout_hhAiig": {
+      "type": "settle-landscape-layout",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
+        "title": "Local Landscape Designers Help Beautify Your Home",
+        "paragraph": "<p>Our dedicated team of landscape designers provide hundreds of designs each year to customers wanting an expert perspective. Work with a team who can quickly produce an amazing solution for your landscape design challenges. No design project is too big or too small.<\/p>",
+        "button_label": "Learn More",
+        "button_link": "\/trigger\/landscape-popup"
       }
     }
   },
@@ -230,7 +230,7 @@
     "custom_liquid_c6F7xJ",
     "settle_header_grid_xE6n7e",
     "featured_collection_mydf7L",
-    "settle_landscape_layout_hhAiig",
-    "featured_collection_bwPUeB"
+    "featured_collection_bwPUeB",
+    "settle_landscape_layout_hhAiig"
   ]
 }
