@@ -128,7 +128,7 @@
             {%- if card_product.available == false -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                class="badge badge--black badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
@@ -137,7 +137,10 @@
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
               >
-                {{- 'products.product.on_sale' | t -}}
+                {% comment %} {{- 'products.product.on_sale' | t -}} {% endcomment %}
+                {% assign compare = card_product.price | times: 10000 | divided_by: card_product.compare_at_price %}
+                {% assign percent = 10000 | minus: compare | divided_by: 100%}
+                {{ percent }}% OFF
               </span>
             {%- endif -%}
           </div>

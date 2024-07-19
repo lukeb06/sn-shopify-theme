@@ -737,21 +737,6 @@ try {
     console.log(e);
 }
 
-// Change Sold Out Badges to Black
-try {
-    console.log('BADGES');
-    els`.badge`.forEach((badge) => {
-        console.log(
-            badge.textContent.trim().toLowerCase().includes('sold out')
-        );
-        if (badge.textContent.trim().toLowerCase().includes('sold out')) {
-            badge.classList.add('badge--black');
-        }
-    });
-} catch (e) {
-    console.log(e);
-}
-
 // Utility Functions
 
 function getRemSize() {
