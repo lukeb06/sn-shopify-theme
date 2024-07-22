@@ -541,6 +541,8 @@ try {
     const descriptions = els`.product__description`;
     let CHILDREN = descriptions.map((v) => [...v.children]);
 
+    if (CHILDREN.length == 0) throw new Error('No descriptions');
+
     function onResize() {
         els`.PRE_VIEW`.forEach((v) => v.remove());
 
@@ -593,6 +595,12 @@ try {
 } catch (e) {
     console.warn("Couldn't load product view");
     console.log(e);
+
+    const accordions = els`.accordion`;
+
+    accordions.forEach((accordion) => {
+        accordion.remove();
+    });
 }
 
 // Buy Buttons
@@ -736,6 +744,98 @@ try {
 
     logQr();
 } catch (e) {
+    console.log(e);
+}
+
+// WIP COME BACK TO THIS
+try {
+    let getInTouch = Array.from(
+        document
+            .querySelector('.footer')
+            .querySelectorAll('.footer-block__details-content')
+    ).filter((v) => v.innerHTML.toLowerCase().includes('call now'))[0];
+
+    if (!getInTouch) throw new Error('No get in touch');
+
+    const links = Array.from(getInTouch.querySelectorAll('a'));
+
+    let callNow = getLink('call');
+    let chatNow = getLink('chat');
+    let emailNow = getLink('email');
+    let textNow = getLink('text');
+
+    function getLink(query) {
+        return links.find((v) => v.innerHTML.toLowerCase().includes(query));
+    }
+} catch (e) {
+    console.log(e);
+}
+
+// Collection List Clickable Image
+try {
+    let collectionItems = els`.collection-list__item`;
+
+    collectionItems.forEach((item) => {
+        const s = mkel`style`;
+        s.innerHTML = `
+            .collection-list__item {
+                cursor: pointer;
+            }
+        `;
+        item.before(s);
+
+        const link = item.querySelector('a');
+        const href = link.getAttribute('href');
+
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = href;
+        });
+    });
+} catch (e) {
+    console.log(e);
+}
+
+// Mega Menu Images
+try {
+    async function getPageImage(url) {
+        const response = await fetch(url);
+        const data = await response.text();
+        // Convert to DOM
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+
+        const image = doc.querySelector(
+            '.collection-hero__image-container img'
+        );
+        if (!image) throw new Error('No image');
+
+        return image.src;
+    }
+
+    els`.mega-menu__list`.forEach((list) => {
+        list.style.display = 'flex';
+        list.style.flexDirection = 'row';
+        list.style.gap = '1rem';
+    });
+
+    els`.mega-menu__link`.forEach((link) => {
+        const href = link.getAttribute('href');
+        getPageImage(href).then((src) => {
+            link.style.backgroundImage = `url('${src}')`;
+            link.style.backgroundColor = '#379c44';
+            link.style.color = 'white';
+            link.style.width = '20rem';
+            link.style.height = '20rem';
+            link.textContent = '';
+            link.style.display = 'block';
+            link.style.backgroundSize = 'cover';
+            link.style.backgroundPosition = 'center';
+            link.style.backgroundRepeat = 'no-repeat';
+        });
+    });
+} catch (e) {
+    console.error("COULDN'T LOAD MEGA MENU IMAGES");
     console.log(e);
 }
 

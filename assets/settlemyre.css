@@ -1166,7 +1166,7 @@ media-gallery {
 }
 
 .desktop-only.product__description {
-    margin-top: 6rem;
+    margin-top: 8rem;
 }
 
 .productView-pickup {
@@ -1525,4 +1525,8 @@ slider-component {
 
 .quick-add__submit:hover::before {
     background-color: #379c44f0 !important;
+}
+
+#emailSubform input[type='email'] {
+    padding-left: 1rem;
 }

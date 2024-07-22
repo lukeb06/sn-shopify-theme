@@ -1,0 +1,103 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_Pi3Th9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_zxPKj7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Garden_Center_Staff.jpg",
+            "title": "General Managers",
+            "text": "<h2>Brandon & Michelle Settlemyre<\/h2><h4>That title goes to Schyler, Henry, and Charlie Settlemyre, the up and coming fourth generation farmers. Brandon and Michelle love their family, and their supierior staff. When not running the business, they enjoy spending time with their lovely boys, fishing at the pond, or just relaxing!<\/h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_qTBJmb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Settlemyre_Test_Staff.jpg",
+            "title": "Business Development",
+            "text": "<h2>Alex Powell<\/h2><h4>Alex stays on top of our development efforts through designing our web experience, data analysis, application development, and building campaigns to connect with customers. Outside of work, Alex likes to run, make music, and grill out. He has a beautiful Lydia and three wonderful children, Lucy, Nathaniel, and WIlliam.<\/h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7PmpyL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Settlemyre_Test_Beth_7.jpg",
+            "title": "Sales Manager",
+            "text": "<h2>Beth Lane<\/h2><h4>Beth holds a Master of Agriculture from NCSU and is experienced in creating landscape designs for residential and business customers. Outside of work, Beth enjoys being outdoors, gardening, and playing with her pets.<\/h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WbcUrX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Professional_Garden_Center_Staff.jpg",
+            "title": "Sales & Design",
+            "text": "<h2>Lauren Turner<\/h2><h4>Lauren can tell you the name and sun requirements for any plant around! She takes care of customers' landscape design needs with a thoughtful attention to detail.  Lauren holds a B.S. degree in Professional Agriculture from NC A& T. Outside of work, Lauren enjoys spending time with her pets and gardening.<\/h4>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Tx9eth": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_9MWXMQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Settlemyre_Test_Staff_1.jpg",
+            "title": "Sales, Design, Assistant Grower",
+            "text": "<h2>Ashley Pouncey<\/h2><h4>Ashley holds a degree in Plant and Soil Science from NCSU and enjoys helping customers build their dream landscapes! Outside of work, Ashley enjoys hiking with her dog and making memories with friends<\/h4>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_zxPKj7",
+        "column_qTBJmb",
+        "column_7PmpyL",
+        "column_WbcUrX",
+        "column_Tx9eth",
+        "column_9MWXMQ"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "multicolumn_Pi3Th9"
+  ]
+}

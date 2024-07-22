@@ -3,7 +3,8 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        "h1 {text-align: center;}"
+        "h1 {text-align: center;}",
+        ".rte.scroll-trigger.animate--slide-in {opacity:0; height:0; overflow:hidden;}"
       ],
       "settings": {
         "padding_top": 48,
