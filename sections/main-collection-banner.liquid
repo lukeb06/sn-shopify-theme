@@ -24,8 +24,12 @@
       {% for link in linklists.main-menu.links -%}
         <div class="c-top-link top-link" data-url="{{ link.url }}" data-title="{{ link.title | escape }}">
           {% for childlink in link.links -%}
-            <div class="c-top-link-next top-link" data-url="{{ childlink.url }}" data-title="{{ childlink.title | escape }}">
-            </div>
+            {% for collection in collections -%}
+              {% if collection.url == childlink.url %}
+                <div class="c-top-link-next top-link" data-src="{{ collection.image | image_url }}" data-url="{{ childlink.url }}" data-title="{{ childlink.title | escape }}">
+                </div>
+              {% endif %}
+            {% endfor %}
           {%- endfor %}
         </div>
       {%- endfor %}
@@ -35,7 +39,7 @@
       {%- endif -%}
     </div>
 
-    {%- if section.settings.show_collection_image and collection.image -%}
+    {% comment %} {%- if section.settings.show_collection_image and collection.image -%}
       <div class="collection-hero__image-container media gradient">
         <img
           srcset="
@@ -54,7 +58,7 @@
           height="{{ collection.image.height }}"
         >
       </div>
-    {%- endif -%}
+    {%- endif -%} {% endcomment %}
   </div>
 </div>
 

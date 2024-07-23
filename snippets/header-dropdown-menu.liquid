@@ -31,6 +31,9 @@
                 role="list"
                 tabindex="-1"
               >
+                <li><a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
+                  All {{ link.title | escape }}
+                </a></li>
                 {%- for childlink in link.links -%}
                   <li>
                     {%- if childlink.links == blank -%}

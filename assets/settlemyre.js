@@ -918,6 +918,7 @@ try {
         return {
             url: item.dataset.url,
             title: item.dataset.title,
+            src: item.dataset.src,
         };
     }
     async function getCollectionImage(url) {
@@ -943,15 +944,16 @@ try {
 
     Array.from(parent.children).forEach(async (item, index) => {
         if (!item.classList.contains('top-link')) return;
-        let { url, title } = parseItem(item);
-        // let image = await getCollectionImage(url);
+        let { url, title, src } = parseItem(item);
+
         // item.classList.add('block-without-wrapper');
         // item.innerHTML = '';
         item.classList.add(`c-blocks-${index}`);
 
         item.style.width = '10rem';
         item.style.height = '10rem';
-        // item.style.backgroundImage = `url(${image})`;
+        item.style.minWidth = '10rem';
+        item.style.minHeight = '10rem';
         // item.textContent = title;
 
         item.addEventListener('click', (e) => {
@@ -967,14 +969,22 @@ try {
                 display: grid;
                 place-items: center;
                 text-align: center;
-                color: black;
+                color: white;
+                font-weight:bold;
                 border-radius:0.5rem;
                 background-color: gray;
                 box-shadow: 0 0 5px whitesmoke;
-                font-size: 1.3rem;
+                font-size: 1.5rem;
                 cursor: pointer;
                 width: 10rem;
                 height: 10rem;
+                transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+                text-shadow: 0 0 1rem black;
+            }
+
+            .c-blocks-${index}:hover {
+                color: black;
+                text-shadow:none;
             }
 
             .c-blocks-${index}::before {
@@ -983,14 +993,14 @@ try {
                 place-items: center;
                 position: absolute;
                 inset: 0;
-                background-color: rgba(255, 255, 255, 0.5);
-                backdrop-filter: blur(5px);
+                backdrop-filter: blur(1px) brightness(60%);
                 border-radius: 0.5rem;
-                transition: background-color 0.3s ease-in-out;
+                transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
             }
 
             .c-blocks-${index}:hover::before {
-                background-color: rgba(255, 255, 255, 0.8);
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(4px) brightness(130%) contrast(40%);
             }
 
             .c-blocks-${index}::after {
@@ -1003,6 +1013,14 @@ try {
             }
         `;
         item.before(style);
+
+        // let image = await getCollectionImage(url);
+        // if (src.includes('Liquid'))
+        //     src = `https://picsum.photos/id/${index * 5}/300/300`;
+        item.style.backgroundImage = `url(${src})`;
+        item.style.backgroundSize = 'cover';
+        item.style.backgroundPosition = 'center';
+        item.style.backgroundRepeat = 'no-repeat';
     });
 } catch (e) {
     console.log(e);
