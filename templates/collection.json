@@ -3,7 +3,8 @@
     "banner": {
       "type": "main-collection-banner",
       "custom_css": [
-        ".collection-hero__description, .collection-hero__image-container {opacity: 0; height: 0; overflow: hidden;}"
+        ".collection-hero__description,.collection-hero__image-container {opacity: 0; height: 0; overflow: hidden;}",
+        ".collection-hero {padding:0;}"
       ],
       "settings": {
         "show_collection_description": true,

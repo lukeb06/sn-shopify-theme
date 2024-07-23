@@ -1,0 +1,145 @@
+{
+  "sections": {
+    "rich_text_3p6wmK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pcT6mL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gift Cards",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pcT6mL"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "featured_product_WR99Kp": {
+      "type": "featured-product",
+      "blocks": {
+        "text_dxapMK": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_bgKyCK": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_AL3YBk": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker_pgCTAe": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_hYe9y3": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "buy_buttons_pD3kPr": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "share_RcYcxx": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "custom_liquid_xxAVzw": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"fullDetails\"><\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "text_dxapMK",
+        "title_bgKyCK",
+        "price_AL3YBk",
+        "variant_picker_pgCTAe",
+        "quantity_selector_hYe9y3",
+        "buy_buttons_pD3kPr",
+        "share_RcYcxx",
+        "custom_liquid_xxAVzw"
+      ],
+      "settings": {
+        "product": "gift-card",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_Yq9B8R": {
+      "type": "rich-text",
+      "blocks": {
+        "text_P6RQbD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to Settlemyre Nursery, where you can find the perfect gift for any occasion with our Settlemyre Nursery Gift Card. Whether you're celebrating a birthday, anniversary, or simply want to show someone you care, our gift card is the ideal choice.<\/p><p>Why choose a Settlemyre Nursery Gift Card? Here are a few reasons:<\/p><ul><li><strong>Versatility:<\/strong> Our gift card can be used to purchase any item in our store, giving the recipient the freedom to choose what they truly desire.<\/li><li><strong>Quality:<\/strong> Settlemyre Nursery is known for its commitment to providing high-quality, timeless products. By giving a gift card, you're ensuring that your loved ones can experience the same level of quality and craftsmanship that we are renowned for.<\/li><li><strong>Sustainability:<\/strong> With our focus on sustainability, our gift card aligns with our values. By allowing the recipient to choose their own eco-friendly product, you're contributing to a greener future.<\/li><li><strong>Convenience:<\/strong> Our gift card can be easily purchased online and delivered directly to the recipient's email inbox, making it a convenient option for last-minute gifts or when distance separates you.<\/li><\/ul><p>How to use the Settlemyre Nursery Gift Card:<\/p><ol><li>Visit our website and browse our collection of beautiful plants, shrubs, trees and more<\/li><li>Select the desired item(s) and add them to the shopping cart.<\/li><li>During the checkout process, enter the unique gift card code provided in the email.<\/li><li>The value of the gift card will be applied to the total amount due.<\/li><li>Complete the purchase and await the arrival of your chosen item(s) at your doorstep.<\/li><\/ol><p>Gift cards are valid for one year from the date of purchase and can only be redeemed on our website or in-store at the Garden Center. Please note that gift cards cannot be exchanged for cash or refunded.<\/p><p>Surprise your loved ones with the gift of choice and let them discover the timeless and eco-friendly products that Settlemyre Nursery has to offer. Purchase a Settlemyre Nursery Gift Card today!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_P6RQbD"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 52
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "rich_text_3p6wmK",
+    "featured_product_WR99Kp",
+    "rich_text_Yq9B8R",
+    "main"
+  ]
+}

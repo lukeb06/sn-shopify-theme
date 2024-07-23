@@ -1530,3 +1530,37 @@ slider-component {
 #emailSubform input[type='email'] {
     padding-left: 1rem;
 }
+
+.collection-hero__title {
+    background-color: #d3d3d3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3.5rem 0;
+    text-align: center;
+    color: black;
+    position: relative;
+    font-size: 4.25rem;
+    box-shadow: 0 0 0.5rem black;
+    --hero-border-radius: 1rem;
+    border-radius: var(--hero-border-radius);
+}
+
+.collection-hero__title::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--hero-border-radius);
+}
+
+.collection-hero__title::after {
+    color: white;
+    font-weight: normal;
+    position: absolute;
+    inset: -1rem;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(3px);
+    border-radius: var(--hero-border-radius);
+}

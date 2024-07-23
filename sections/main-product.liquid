@@ -778,38 +778,40 @@
             {% render 'icon-arrow' %}
           </a>
 
-          
+          {% assign metafields = product.metafields.shopify %}
 
-          <div class="productView-specs">
-            <h1>Specifications</h1>
+          {% if product.metafields.size > 0 %}
+            <div class="productView-specs">
+              <h1>Specifications</h1>
 
-            {% assign metafields = product.metafields.shopify %}
+              
 
-            <style>
-              .table-spec {
-                padding-left: 1rem;
-              }
-            </style>
+              <style>
+                .table-spec {
+                  padding-left: 1rem;
+                }
+              </style>
 
-            <table>
-                {% for metafield in metafields %}
-                  {% assign meta = metafield | escape | split: "[" | last | split: "," | first | escape | replace: "quot;", "" | replace: "&amp;", "" %}
-                  {% assign metakey = meta | replace: '-', " " | capitalize %}
-                  {% assign metavalues = metafields[meta].value %}
+              <table>
+                  {% for metafield in metafields %}
+                    {% assign meta = metafield | escape | split: "[" | last | split: "," | first | escape | replace: "quot;", "" | replace: "&amp;", "" %}
+                    {% assign metakey = meta | replace: '-', " " | capitalize %}
+                    {% assign metavalues = metafields[meta].value %}
 
-                  <tr>
-                    <td>{{ metakey }}</td>
-                    <td>
-                      <ul class="table-spec">
-                        {%  for metaobject in metavalues %}
-                          <li>{{ metaobject.label }}</li>
-                        {% endfor %}
-                      </ul>
-                    </td>
-                  </tr>
-                {% endfor %}
-            </table>
-          </div>
+                    <tr>
+                      <td>{{ metakey }}</td>
+                      <td>
+                        <ul class="table-spec">
+                          {%  for metaobject in metavalues %}
+                            <li>{{ metaobject.label }}</li>
+                          {% endfor %}
+                        </ul>
+                      </td>
+                    </tr>
+                  {% endfor %}
+              </table>
+            </div>
+          {% endif %}
         </section>
       </div>
     </div>

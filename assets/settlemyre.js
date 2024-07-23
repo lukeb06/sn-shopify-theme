@@ -385,6 +385,8 @@ try {
                     .includes(hotlink.find.toLowerCase());
             });
 
+            if (!li) return;
+
             const className = `${stripText(hotlink.find)}-hotlink`;
 
             li.classList.add(className);
@@ -605,6 +607,9 @@ try {
 
 // Buy Buttons
 try {
+    if (window.location.pathname.includes('gift-card'))
+        throw new Error('Gift Card');
+
     if (window.innerWidth > 750) {
         desktopInit();
         throw new Error('Not Mobile');
@@ -748,6 +753,7 @@ try {
 }
 
 // WIP COME BACK TO THIS
+// TODO: Add icons to get in touch links
 try {
     let getInTouch = Array.from(
         document
@@ -817,6 +823,8 @@ try {
         list.style.display = 'flex';
         list.style.flexDirection = 'row';
         list.style.gap = '1rem';
+        list.style.flexWrap = 'wrap';
+        list.style.overflowX = 'hidden';
     });
 
     els`.mega-menu__link`.forEach((link) => {
@@ -827,15 +835,81 @@ try {
             link.style.color = 'white';
             link.style.width = '20rem';
             link.style.height = '20rem';
-            link.textContent = '';
             link.style.display = 'block';
             link.style.backgroundSize = 'cover';
             link.style.backgroundPosition = 'center';
             link.style.backgroundRepeat = 'no-repeat';
+            const text = link.textContent.trim();
+            link.textContent = '';
+            link.style.position = 'relative';
+            link.classList.add('block-without-wrapper');
+
+            const sty = mkel`style`;
+            sty.innerHTML = `
+                #${link.id}::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    display: block;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    backdrop-filter: blur(5px);
+                    border-radius: 0.5rem;
+                }
+
+                #${link.id}::after {
+                    content: '${text}';
+                    position: absolute;
+                    inset: 1rem;
+                    display: grid;
+                    place-items: center;
+                    white-space: wrap;
+                    text-align: center;
+                    font-size: 3.5rem;
+                }
+            `;
+
+            link.before(sty);
         });
     });
 } catch (e) {
     console.error("COULDN'T LOAD MEGA MENU IMAGES");
+    console.log(e);
+} finally {
+    console.log('MEGA MENU IMAGES LOADED');
+}
+
+// Replace "View full details" text on product page IF...
+// ...the product is a gift card
+// NOTE: This is a hack to improve UX.
+// ISSUE: For whatever reason, you can't select...
+//        product variants when using the product section.
+// TODO: Investiage why this is happening and remove this.
+try {
+    document.getElementById('fullDetails').nextElementSibling.textContent =
+        'View full product page';
+} catch (e) {}
+
+// Redirect /pages/gift-cards -> /products/gift-card
+// NOTE: Gift Card page content is visible on the gift card product page
+try {
+    if (window.location.pathname.includes('/pages/gift-cards')) {
+        window.location.href = '/products/gift-card';
+    }
+} catch (e) {}
+
+// Collection Hero Title Background
+try {
+    console.log('COLLECTION HERO INIT');
+
+    if (!window.location.pathname.includes('collections'))
+        throw new Error('Not Collection');
+
+    let imageUrl = el`#product-grid`.el`li`.el`img`.src.trim();
+
+    const title = el`.collection-hero__title`;
+    title.style.backgroundImage = `url('${imageUrl}')`;
+} catch (e) {
+    console.error("COULDN'T LOAD COLLECTION HERO");
     console.log(e);
 }
 

@@ -1,5 +1,11 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
 
+<script>
+  if (window.location.pathname.includes('/pages/gift-cards')) {
+    window.location.href = '/products/gift-card';
+}
+</script>
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;

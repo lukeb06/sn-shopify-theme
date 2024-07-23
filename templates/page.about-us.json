@@ -1,0 +1,97 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_kEANUK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fXmerT": {
+          "type": "heading",
+          "settings": {
+            "heading": "About Settlemyre Nursery",
+            "heading_size": "h0"
+          }
+        },
+        "caption_VnWDKH": {
+          "type": "caption",
+          "settings": {
+            "caption": "Serving Western North Carolina since 1973.",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fXmerT",
+        "caption_VnWDKH"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multicolumn_7R8Ltj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_AUV8dD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Settlemyre_Nursery_Farm.jpg",
+            "title": "",
+            "text": "<h2><strong>Company History<\/strong><\/h2><h3>Our business began in 1973 by Loyd & Robert Settlemyre. Their passion for plants grew into a business that has been of great value to the community. Now in our 50th year, Brandon & Michelle Settlemyre are expanding the family business to new levels!<\/h3><h3><\/h3><h2><strong>Retail Location<\/strong><\/h2><h3>We offer a high-quality selection of ornamental shrubs and trees, annual bedding plants, soils, mulches, fertilizers, garden decor, and more. at our four-acre retail location in Valdese, NC.<\/h3>",
+            "link_label": "Hours and Directions",
+            "link": "https:\/\/goo.gl\/maps\/HvU74Jipg21L2Guh8"
+          }
+        },
+        "column_9HfgAt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Settlemyre_Nursery_Customer_Service.jpg",
+            "title": "",
+            "text": "<h2><strong>Shop 24\/7 Online<\/strong><\/h2><h3>When you buy your plants from our webstore, our staff assembles your order, picking the best stock available and reserves it just for you! Checkout is a breeze with payment options like PayPal, Visa, Mastercard, Google Pay, Apply Pay, and more!<\/h3><p><\/p><h2><strong>Buy with Confidence<\/strong><\/h2><h3>Every year we help thousands of customers create their dream landscapes. Don't just take our word for it. Read some of our Google reviews.<\/h3>",
+            "link_label": "Read Reviews",
+            "link": "https:\/\/goo.gl\/maps\/HvU74Jipg21L2Guh8"
+          }
+        }
+      },
+      "block_order": [
+        "column_AUV8dD",
+        "column_9HfgAt"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_kEANUK",
+    "multicolumn_7R8Ltj"
+  ]
+}
