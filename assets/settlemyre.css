@@ -1564,3 +1564,28 @@ slider-component {
     backdrop-filter: blur(3px);
     border-radius: var(--hero-border-radius);
 }
+
+.collection-parent-style {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    /* flex-wrap: wrap; */
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    padding: 0.25rem;
+    justify-content: center;
+}
+
+@media (max-width: 749px) {
+    /* Horizontal Scrolling */
+    .collection-parent-style {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        overflow-y: hidden;
+        height: 10rem;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        padding: 0.25rem;
+    }
+}

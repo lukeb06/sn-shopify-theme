@@ -935,18 +935,74 @@ try {
         return image.src;
     }
 
-    Array.from(
-        document.querySelector(
-            `.top-link[data-url='${window.location.pathname}']`
-        ).children
-    ).forEach(async (item) => {
+    let parent = document.querySelector(
+        `.top-link[data-url='${window.location.pathname}']`
+    );
+
+    parent.classList.add('collection-parent-style');
+
+    Array.from(parent.children).forEach(async (item, index) => {
+        if (!item.classList.contains('top-link')) return;
         let { url, title } = parseItem(item);
         // let image = await getCollectionImage(url);
-        item.classList.add('block-without-wrapper');
+        // item.classList.add('block-without-wrapper');
+        // item.innerHTML = '';
+        item.classList.add(`c-blocks-${index}`);
+
         item.style.width = '10rem';
         item.style.height = '10rem';
         // item.style.backgroundImage = `url(${image})`;
-        item.textContent = title;
+        // item.textContent = title;
+
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = url;
+        });
+
+        let style = mkel`style`;
+        style.innerHTML = `
+            .c-blocks-${index} {
+                scroll-snap-align: center;
+                position: relative;
+                display: grid;
+                place-items: center;
+                text-align: center;
+                color: black;
+                border-radius:0.5rem;
+                background-color: gray;
+                box-shadow: 0 0 5px whitesmoke;
+                font-size: 1.3rem;
+                cursor: pointer;
+                width: 10rem;
+                height: 10rem;
+            }
+
+            .c-blocks-${index}::before {
+                content: '';
+                display:grid;
+                place-items: center;
+                position: absolute;
+                inset: 0;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(5px);
+                border-radius: 0.5rem;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .c-blocks-${index}:hover::before {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+
+            .c-blocks-${index}::after {
+                content: '${title}';
+                position: absolute;
+                inset: 1rem;
+                display: grid;
+                place-items: center;
+                border-radius: 0.5rem;
+            }
+        `;
+        item.before(style);
     });
 } catch (e) {
     console.log(e);
