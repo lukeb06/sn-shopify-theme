@@ -913,6 +913,45 @@ try {
     console.log(e);
 }
 
+try {
+    function parseItem(item) {
+        return {
+            url: item.dataset.url,
+            title: item.dataset.title,
+        };
+    }
+    async function getCollectionImage(url) {
+        const response = await fetch(url);
+        const data = await response.text();
+        // Convert to DOM
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
+
+        const image = doc.querySelector(
+            '.collection-hero__image-container img'
+        );
+        if (!image) return '';
+
+        return image.src;
+    }
+
+    Array.from(
+        document.querySelector(
+            `.top-link[data-url='${window.location.pathname}']`
+        ).children
+    ).forEach(async (item) => {
+        let { url, title } = parseItem(item);
+        // let image = await getCollectionImage(url);
+        item.classList.add('block-without-wrapper');
+        item.style.width = '10rem';
+        item.style.height = '10rem';
+        // item.style.backgroundImage = `url(${image})`;
+        item.textContent = title;
+    });
+} catch (e) {
+    console.log(e);
+}
+
 // Utility Functions
 
 function getRemSize() {

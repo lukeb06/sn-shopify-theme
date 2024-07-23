@@ -21,6 +21,15 @@
         {{- collection.title | escape -}}
       </h1>
 
+      {% for link in linklists.main-menu.links -%}
+        <div class="c-top-link top-link" data-url="{{ link.url }}" data-title="{{ link.title | escape }}">
+          {% for childlink in link.links -%}
+            <div class="c-top-link-next top-link" data-url="{{ childlink.url }}" data-title="{{ childlink.title | escape }}">
+            </div>
+          {%- endfor %}
+        </div>
+      {%- endfor %}
+
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
