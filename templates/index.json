@@ -155,6 +155,48 @@
         "paragraph2": "<h4>For over 50 years the Settlemyres have been green! For three generations, our family owned and operated plant and tree nursery have thrive in beautiful foothills of Valdese, NC. A short drive from Hickory, Lake James, Morganton, Connelly Springs, Granite Falls, Gastonia, Mooresville, Charlotte, Boone, Blowing Rock, and Asheville, NC. Not only do we build lasting lanscapes, we build life long relationships. Let us create the the landscape you have been dreaming of. Stop in team the professionals today at Settlemyre Nursery, your go to garden center!<\/h4>"
       }
     },
+    "rich_text_UcKnRM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nhte8r": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_wHWm66": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_TXg7HH": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nhte8r",
+        "text_wHWm66",
+        "button_TXg7HH"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "collection_list_ebry7i": {
       "type": "collection-list",
       "blocks": {
@@ -241,6 +283,7 @@
     "featured_collection_jKEbVM",
     "custom_liquid_c6F7xJ",
     "settle_header_grid_xE6n7e",
+    "rich_text_UcKnRM",
     "collection_list_ebry7i",
     "featured_collection_bwPUeB",
     "settle_landscape_layout_hhAiig"

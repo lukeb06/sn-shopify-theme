@@ -378,11 +378,14 @@ try {
         .loadJSON(window.shopifyCDN('navbar-hotlinks.json'))
         .then((hotlinks) => {
             hotlinks.forEach((hotlink) => {
-                const li = els`.list-menu--inline li`.find((li) => {
-                    return li.innerText
-                        .toLowerCase()
-                        .includes(hotlink.find.toLowerCase());
-                });
+                const li =
+                    els`.header__inline-menu > .list-menu--inline > li`.find(
+                        (li) => {
+                            return li.el`a`.innerText
+                                .toLowerCase()
+                                .includes(hotlink.find.toLowerCase());
+                        }
+                    );
 
                 if (!li) return;
 
@@ -414,7 +417,7 @@ try {
                 const style = document.createElement('style');
                 style.innerHTML = newStyle;
 
-                document.head.appendChild(style);
+                li.before(style);
             });
         });
 } catch (e) {
@@ -423,31 +426,77 @@ try {
 }
 
 try {
-    window.loadJSON(window.shopifyCDN('navbar-config.json')).then((r) => {
-        const navItems = els`.list-menu li`;
-        r.forEach((item) => {
-            const li = navItems.find(
-                (li) => li.innerText.toLowerCase() === item.find.toLowerCase()
-            );
+    // window.loadJSON(window.shopifyCDN('navbar-config.json')).then((r) => {
+    //     const navItems = els`.list-menu li`;
+    //     r.forEach((item) => {
+    //         const li = navItems.find(
+    //             (li) => li.innerText.toLowerCase() === item.find.toLowerCase()
+    //         );
+
+    //         if (!li) return;
+    //         if (!item.visible) return li.classList.add('d-none');
+
+    //         const { visibleFrom, visibleTo } = item.visible_when;
+
+    //         let visibleFromDate = new Date(
+    //             `${visibleFrom} ${new Date().getFullYear()}`
+    //         ).getTime();
+    //         let visibleToDate = new Date(
+    //             `${visibleTo} ${new Date().getFullYear()}`
+    //         ).getTime();
+
+    //         if (Date.now() < visibleFromDate || Date.now() > visibleToDate) {
+    //             // li.classList.add('d-none');
+    //             li.classList.add('strike');
+    //         }
+    //     });
+    // });
+
+    parseItems();
+
+    el`header-drawer span`.addEventListener('click', (event) => {
+        for (let i = 5; i < 250; i += 25) {
+            setTimeout(() => {
+                parseItems();
+            }, i);
+        }
+    });
+
+    function parseItems() {
+        const navItems = [...els`.list-menu li`];
+        const navItemConfigs = els`.nav-item-config`;
+
+        navItemConfigs.forEach((config) => {
+            const find = config.dataset.find;
+            const visible = config.dataset.visible;
+            const variableVisibility = config.dataset.variablevisibility;
+            const startDate = config.dataset.startdate;
+            const endDate = config.dataset.enddate;
+
+            const li = navItems.find((li) => {
+                return li.innerText.toLowerCase() == find.toLowerCase();
+            });
 
             if (!li) return;
-            if (!item.visible) return li.classList.add('d-none');
+            if (visible == 'false') return li.classList.add('d-none');
 
-            const { visibleFrom, visibleTo } = item.visible_when;
+            if (variableVisibility == 'true') {
+                const visibleFromDate = new Date(
+                    `${startDate} ${new Date().getFullYear()}`
+                ).getTime();
+                const visibleToDate = new Date(
+                    `${endDate} ${new Date().getFullYear()}`
+                ).getTime();
 
-            let visibleFromDate = new Date(
-                `${visibleFrom} ${new Date().getFullYear()}`
-            ).getTime();
-            let visibleToDate = new Date(
-                `${visibleTo} ${new Date().getFullYear()}`
-            ).getTime();
-
-            if (Date.now() < visibleFromDate || Date.now() > visibleToDate) {
-                // li.classList.add('d-none');
-                li.classList.add('strike');
+                if (
+                    Date.now() < visibleFromDate ||
+                    Date.now() > visibleToDate
+                ) {
+                    li.classList.add('d-none');
+                }
             }
         });
-    });
+    }
 } catch (e) {
     console.warn("Couldn't load navbar config");
     console.log(e);
@@ -1090,7 +1139,7 @@ try {
         // item.innerHTML = '';
         item.classList.add(`c-blocks-${index}`);
 
-        let size = '14.5rem';
+        let size = '177px';
 
         item.style.width = size;
         item.style.height = size;
