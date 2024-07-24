@@ -16,10 +16,26 @@ Element.prototype.mkel = function ([s]) {
 
 // Get JSON Files from NGROK
 try {
-    window.loadJSON = (path) => {
+    window.shopifyCDN = (file) => {
+        return `https://cdn.shopify.com/s/files/1/0886/9658/6534/files/${file}?t=${Math.floor(
+            Math.random() * 100000
+        )}`;
+    };
+
+    window.loadJSON = (url) => {
+        return new Promise((resolve, reject) => {
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => resolve(data));
+        });
+    };
+
+    window.loadImage = (coll) => {
         return new Promise((resolve, reject) => {
             fetch(
-                `https://termite-enormous-hornet.ngrok-free.app/files/${path}`,
+                'https://api.settlemyrenursery.com/files/catalog_images/collection_header_images/' +
+                    coll +
+                    '.jpg',
                 {
                     method: 'GET',
                     headers: {
@@ -27,8 +43,8 @@ try {
                     },
                 }
             )
-                .then((response) => response.json())
-                .then((data) => resolve(data));
+                .then((response) => response.blob())
+                .then((blob) => resolve(blob));
         });
     };
 } catch (e) {
@@ -267,7 +283,7 @@ try {
         grids = grids.filter((grid) => grid.wrapper != null);
         // grids = [];
 
-        loadJSON('config/homepage-config.json').then((r) => {
+        loadJSON(window.shopifyCDN('homepage-config.json')).then((r) => {
             console.log(r);
 
             grids.forEach((grid) => {
@@ -348,25 +364,6 @@ try {
     console.log(e);
 }
 
-// Navbar
-try {
-    const ul = el`.list-menu--inline`;
-    const li = Array.from(ul.querySelectorAll('li'));
-
-    const maxWidth = Math.ceil(
-        li
-            .map((item) => item.getBoundingClientRect().width)
-            .reduce((a, b) => a + b)
-    );
-
-    ul.style.maxWidth = `${maxWidth}px`;
-
-    ul.classList.remove('chidden');
-} catch (e) {
-    console.warn('Test');
-    console.log(e);
-}
-
 // Navbar Hotlinks
 try {
     window.stripText = (text) => {
@@ -377,21 +374,23 @@ try {
             .replace(/\s+/g, '-');
     };
 
-    window.loadJSON('config/navbar-hotlinks.json').then((hotlinks) => {
-        hotlinks.forEach((hotlink) => {
-            const li = els`.list-menu--inline li`.find((li) => {
-                return li.innerText
-                    .toLowerCase()
-                    .includes(hotlink.find.toLowerCase());
-            });
+    window
+        .loadJSON(window.shopifyCDN('navbar-hotlinks.json'))
+        .then((hotlinks) => {
+            hotlinks.forEach((hotlink) => {
+                const li = els`.list-menu--inline li`.find((li) => {
+                    return li.innerText
+                        .toLowerCase()
+                        .includes(hotlink.find.toLowerCase());
+                });
 
-            if (!li) return;
+                if (!li) return;
 
-            const className = `${stripText(hotlink.find)}-hotlink`;
+                const className = `${stripText(hotlink.find)}-hotlink`;
 
-            li.classList.add(className);
+                li.classList.add(className);
 
-            const newStyle = `
+                const newStyle = `
                 .${className}:before {
                     content: '${hotlink.hot_text}';
                     display: block;
@@ -412,14 +411,64 @@ try {
                 }
             `;
 
-            const style = document.createElement('style');
-            style.innerHTML = newStyle;
+                const style = document.createElement('style');
+                style.innerHTML = newStyle;
 
-            document.head.appendChild(style);
+                document.head.appendChild(style);
+            });
+        });
+} catch (e) {
+    console.warn("Couldn't load hotlinks");
+    console.log(e);
+}
+
+try {
+    window.loadJSON(window.shopifyCDN('navbar-config.json')).then((r) => {
+        const navItems = els`.list-menu li`;
+        r.forEach((item) => {
+            const li = navItems.find(
+                (li) => li.innerText.toLowerCase() === item.find.toLowerCase()
+            );
+
+            if (!li) return;
+            if (!item.visible) return li.classList.add('d-none');
+
+            const { visibleFrom, visibleTo } = item.visible_when;
+
+            let visibleFromDate = new Date(
+                `${visibleFrom} ${new Date().getFullYear()}`
+            ).getTime();
+            let visibleToDate = new Date(
+                `${visibleTo} ${new Date().getFullYear()}`
+            ).getTime();
+
+            if (Date.now() < visibleFromDate || Date.now() > visibleToDate) {
+                // li.classList.add('d-none');
+                li.classList.add('strike');
+            }
         });
     });
 } catch (e) {
-    console.warn("Couldn't load hotlinks");
+    console.warn("Couldn't load navbar config");
+    console.log(e);
+}
+
+// Navbar
+try {
+    const ul = el`.list-menu--inline`;
+    const li = Array.from(ul.querySelectorAll('li'));
+
+    const maxWidth = Math.ceil(
+        li
+            .map((item) => item.getBoundingClientRect().width)
+            .reduce((a, b) => a + b)
+    );
+
+    ul.style.maxWidth = `${maxWidth}px`;
+
+    ul.classList.remove('chidden');
+} catch (e) {
+    console.warn('Test');
     console.log(e);
 }
 
@@ -514,7 +563,7 @@ try {
         data['ngrok-skip-browser-warning'] = 'skip';
 
         const response = await fetch(
-            `https://termite-enormous-hornet.ngrok-free.app/newsletter`,
+            `https://api.settlemyrenursery.com/newsletter`,
             {
                 method: 'POST',
                 body: JSON.stringify(data),
@@ -731,7 +780,7 @@ try {
         const urlObj = new URL(window.location.href);
         const params = urlObj.searchParams.get('qr');
         if (!params) return;
-        const url = `https://termite-enormous-hornet.ngrok-free.app/qr/${params}`;
+        const url = `https://api.settlemyrenursery.com/qr/${params}`;
         try {
             const response = await fetch(url, {
                 headers: {
@@ -779,13 +828,20 @@ try {
 
 // Collection List Clickable Image
 try {
-    let collectionItems = els`.collection-list__item`;
+    let collectionItems = [
+        ...els`.collection-list__item`,
+        ...els`.grid.product-grid .grid__item`,
+    ];
 
     collectionItems.forEach((item) => {
         const s = mkel`style`;
         s.innerHTML = `
             .collection-list__item {
                 cursor: pointer;
+            }
+
+            .grid__item {
+                cursor:pointer;
             }
         `;
         item.before(s);
@@ -901,13 +957,97 @@ try {
 try {
     console.log('COLLECTION HERO INIT');
 
+    function resetCollectionHeroCache() {
+        localStorage.setItem('time-of-last-collection-hero-reset', Date.now());
+
+        let keys = Object.keys(localStorage).filter((v) =>
+            v.includes('collection-hero-image')
+        );
+
+        keys.forEach((key) => {
+            localStorage.removeItem(key);
+        });
+    }
+
+    window.resetCache = resetCollectionHeroCache;
+
+    if (!localStorage.getItem('time-of-last-collection-hero-reset')) {
+        resetCollectionHeroCache();
+    } else if (
+        new Date().getTime() -
+            +localStorage.getItem('time-of-last-collection-hero-reset') >
+        1000 * 60 * 60 * 12
+    ) {
+        resetCollectionHeroCache();
+    }
+
     if (!window.location.pathname.includes('collections'))
         throw new Error('Not Collection');
 
-    let imageUrl = el`#product-grid`.el`li`.el`img`.src.trim();
+    let imageUrl;
 
-    const title = el`.collection-hero__title`;
-    title.style.backgroundImage = `url('${imageUrl}')`;
+    function setBackground(_imageUrl) {
+        const title = el`.collection-hero__title`;
+        title.style.backgroundImage = `url('${_imageUrl}')`;
+    }
+
+    try {
+        let coll = window.location.pathname
+            .replace('/collections/', '')
+            .replaceAll('_', '-');
+
+        if (localStorage.getItem(`collection-hero-image-${coll}`)) {
+            imageUrl = localStorage.getItem(`collection-hero-image-${coll}`);
+
+            setBackground(imageUrl);
+        } else {
+            window.loadImage(coll).then((blob) => {
+                if (blob.size > 30) {
+                    imageUrl = URL.createObjectURL(blob);
+                    console.log(blob);
+
+                    setBackground(imageUrl);
+
+                    const reader = new FileReader();
+                    reader.addEventListener('load', (event) => {
+                        localStorage.setItem(
+                            `collection-hero-image-${coll}`,
+                            event.target.result
+                        );
+                    });
+
+                    reader.readAsDataURL(blob);
+                } else {
+                    try {
+                        imageUrl = el`#product-grid`.el`li`.el`img`.src.trim();
+
+                        // convert image url to data url
+                        const img = new Image();
+                        img.src = imageUrl;
+                        img.onload = () => {
+                            const canvas = document.createElement('canvas');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0);
+                            const dataURL = canvas.toDataURL('image/png');
+                            localStorage.setItem(
+                                `collection-hero-image-${coll}`,
+                                dataURL
+                            );
+                        };
+
+                        setBackground(imageUrl);
+                    } catch (e) {
+                        console.error("COULDN'T LOAD COLLECTION HERO");
+                        console.log(e);
+                    }
+                }
+            });
+        }
+    } catch (e) {
+        console.log('no file');
+    }
 } catch (e) {
     console.error("COULDN'T LOAD COLLECTION HERO");
     console.log(e);
@@ -950,10 +1090,12 @@ try {
         // item.innerHTML = '';
         item.classList.add(`c-blocks-${index}`);
 
-        item.style.width = '10rem';
-        item.style.height = '10rem';
-        item.style.minWidth = '10rem';
-        item.style.minHeight = '10rem';
+        let size = '14.7rem';
+
+        item.style.width = size;
+        item.style.height = size;
+        item.style.minWidth = size;
+        item.style.minHeight = size;
         // item.textContent = title;
 
         item.addEventListener('click', (e) => {
@@ -995,12 +1137,12 @@ try {
                 inset: 0;
                 backdrop-filter: blur(1px) brightness(60%);
                 border-radius: 0.5rem;
-                transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
+                transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, border-radius 0.3s ease-in-out;
             }
 
             .c-blocks-${index}:hover::before {
                 background-color: rgba(255, 255, 255, 0.5);
-                backdrop-filter: blur(4px) brightness(130%) contrast(40%);
+                backdrop-filter: blur(4px) brightness(100%) contrast(40%);
             }
 
             .c-blocks-${index}::after {

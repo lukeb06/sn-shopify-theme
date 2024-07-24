@@ -8,6 +8,7 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline chidden" role="list">
     {%- for link in section.settings.menu.links -%}
+      {% comment %} {%-  if link.title != 'Services' and link.title != 'Events' -%} {% endcomment %}
       <li>
         {%- if link.links != blank -%}
           <header-menu>
@@ -101,6 +102,7 @@
           </a>
         {%- endif -%}
       </li>
+      {% comment %} {%- endif -%} {% endcomment %}
     {%- endfor -%}
   </ul>
 </nav>
