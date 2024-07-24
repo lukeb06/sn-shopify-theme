@@ -1090,7 +1090,7 @@ try {
         // item.innerHTML = '';
         item.classList.add(`c-blocks-${index}`);
 
-        let size = '14.7rem';
+        let size = '14.5rem';
 
         item.style.width = size;
         item.style.height = size;
