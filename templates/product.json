@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -151,7 +160,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>Why Settlemyre Nursery?<\/strong>",
-            "text": "<p>We know plants! Locally Grown and sourced plant and tree material insure that you are getting the best start for your garden or landscape. We have been building relationships for over 50 years. <\/p>",
+            "text": "<p>We know plants! Locally grown and sourced plant and tree material ensure that you are getting the best start for your garden or landscape. We have been building relationships for over 50 years. <\/p>",
             "link_label": "",
             "link": ""
           }
@@ -160,7 +169,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>Come see for yourself.<\/strong>",
-            "text": "<p>Folks travel from all over the western part of North Carolina to browse the our retail plant and tree nursery. We are so excited to help you! Be sure to plan a visit day, bring the family come experience the difference!<\/p>",
+            "text": "<p>Folks travel from all over the western part of North Carolina to browse the our retail plant and tree nursery. We are so excited to help you! Plan a day to visit, bring the family, and come experience the difference!<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -169,7 +178,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>Your Support.<\/strong>",
-            "text": "<p>When you support Settlemyre Nursery, your not only supporting our business, your contributing and supporting over 15 local families. From our family to yours, we say thank you.<\/p>",
+            "text": "<p>When you support Settlemyre Nursery, you're not only supporting our business, you're contributing and supporting over 15 local families. From our family to yours, we say thank you.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -236,7 +245,6 @@
         "heading_size": "h2",
         "enable_video_looping": false,
         "video_url": "https:\/\/www.youtube.com\/watch?v=5VE-7sKY0t8",
-        "cover_image": "shopify:\/\/shop_images\/Settlemyre_Nursery_1387_Drexel_Rd_Valdese_NC_28690.jpg",
         "description": "Settlemyre Nursery 1387 Drexel Rd Valdese NC 28690 Garden Center Plant Nursery Tree Nursery Landscaping Service",
         "full_width": false,
         "color_scheme": "",
