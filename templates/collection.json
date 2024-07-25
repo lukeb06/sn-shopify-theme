@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "banner": {
@@ -31,10 +40,64 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_hTFczn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_CaTC7N": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Earn Store Rewards<\/strong>",
+            "text": "<p>All our Garden Center account holders earn 5% back on all purchases from Settlemyre Nursery.  No strings, no gimmicks. Use your email to sign in or sign up! Rewards can be redeemed on products. Now that's service!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FGhUJg": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Service just for you<\/strong>",
+            "text": "<p>Can't find what your looking for? We are at your fingertips. We can be reached via phone, text, email and live chat. Let us take care of you, today and forever. Our kind and professional plant nursery associates are standing by!<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BApqjg": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_CaTC7N",
+        "column_FGhUJg",
+        "column_BApqjg"
+      ],
+      "settings": {
+        "title": "More for Less",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "multicolumn_hTFczn"
   ]
 }
