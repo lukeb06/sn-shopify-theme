@@ -56,8 +56,8 @@
         "column_FGhUJg": {
           "type": "column",
           "settings": {
-            "title": "<strong>Service just for you<\/strong>",
-            "text": "<p>Can't find what your looking for? We are at your fingertips. We can be reached via phone, text, email and live chat. Let us take care of you, today and forever. Our kind and professional plant nursery associates are standing by!<\/p>",
+            "title": "<strong>Service, yup we've got you.<\/strong>",
+            "text": "<p>Can't find what your looking for? We are at your fingertips. We can be reached via phone, text, email and live chat. Let us take care of you, today, tomorrow and forever. Our professional plant nursery associates are standing by!<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -78,7 +78,7 @@
         "column_BApqjg"
       ],
       "settings": {
-        "title": "More for Less",
+        "title": "Just for you",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
