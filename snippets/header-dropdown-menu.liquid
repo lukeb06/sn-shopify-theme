@@ -33,7 +33,7 @@
                 tabindex="-1"
               >
                 <li><a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
-                  All {{ link.title | escape }}
+                  <span style="font-weight: bold;">All {{ link.title | escape }}</span>
                 </a></li>
                 {%- for childlink in link.links -%}
                   <li>

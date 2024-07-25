@@ -103,6 +103,17 @@
         "start_date": "Jul 15",
         "end_date": "Oct 31"
       }
+    },
+    "settle_zone_finder_xyBVjV": {
+      "type": "settle-zone-finder",
+      "settings": {
+        "heading": "Why do we ask for location?",
+        "paragraph": "It helps us recommend trees and plants that are well-suited to the local climate, based on your Growing Zone.",
+        "input_label": "What's your ZIP code?",
+        "input_placeholder": "ex. 28690",
+        "button_label1": "Use current location",
+        "button_label2": "Save my location"
+      }
     }
   },
   "order": [
@@ -111,6 +122,7 @@
     "settle_navbar_config_WwDDWm",
     "settle_navbar_config_9xLAMb",
     "settle_navbar_config_rpFi77",
-    "settle_navbar_config_NHQG9t"
+    "settle_navbar_config_NHQG9t",
+    "settle_zone_finder_xyBVjV"
   ]
 }

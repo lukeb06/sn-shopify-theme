@@ -1,6 +1,7 @@
 const el = ([s]) => document.querySelector(s);
 const els = ([s]) => Array.from(document.querySelectorAll(s));
 const mkel = ([s]) => document.createElement(s);
+const ol = 'to';
 
 Element.prototype.el = function ([s]) {
     return this.querySelector(s);
@@ -13,6 +14,128 @@ Element.prototype.els = function ([s]) {
 Element.prototype.mkel = function ([s]) {
     return this.appendChild(mkel(s));
 };
+
+try {
+    /*
+
+fetch('https://api.ipify.org?format=json')
+    .then((r) => r.json())
+    .then(({ ip }) => {
+        fetch(`http://ip-api.com/json/${ip}`)
+            .then((r) => r.json())
+            .then((r) => console.log(r));
+    });
+
+*/
+
+    async function getClientIP() {
+        return new Promise((resolve, reject) => {
+            fetch('https://api.ipify.org?format=json')
+                .then((r) => r.json())
+                .then(({ ip }) => resolve(ip));
+        });
+    }
+
+    async function getClientZip(ip) {
+        return new Promise((resolve, reject) => {
+            fetch(`https://ipinfo.io/${ip}?${ol}ken=49bf257e5521e4`)
+                .then((r) => r.json())
+                .then(({ postal }) => resolve(postal));
+        });
+    }
+
+    async function fetchZone(zip) {
+        let response = await fetch(`https://phzmapi.org/${zip}.json`);
+        let { zone } = await response.json();
+        if (!zone) return 'ERR';
+        return zone;
+    }
+
+    function getClientZone() {
+        return new Promise((resolve, reject) => {
+            getClientIP().then(getClientZip).then(fetchZone).then(resolve);
+        });
+    }
+
+    window.getClientZone = getClientZone;
+    window.getClientIP = getClientIP;
+    window.getClientZip = getClientZip;
+    window.fetchZone = fetchZone;
+
+    function setZoneContent(zone) {
+        els`.myZone`.forEach((z) => {
+            z.textContent = zone;
+        });
+    }
+
+    // Remove all non-numeric characters from the zone
+    function convertZoneToInt(zone) {
+        return zone.replace(/[^0-9]/g, '');
+    }
+
+    function setLocalZone(zone) {
+        localStorage.setItem('zone', zone);
+        localStorage.setItem('zone-int', convertZoneToInt(zone));
+        setZoneContent(zone);
+    }
+
+    function toggleZoneDropdown() {
+        el`#zoneDropdownContent`.classList.toggle('d-none');
+    }
+
+    window.getLocalZone = () => {
+        return +localStorage.getItem('zone-int');
+    };
+
+    if (!localStorage.getItem('zipcode') || !localStorage.getItem('zone')) {
+        window
+            .getClientIP()
+            .then(window.getClientZip)
+            .then((zip) => {
+                localStorage.setItem('zipcode', zip);
+                document.getElementById('myZip').textContent = zip;
+                window.fetchZone(zip).then((zone) => {
+                    setLocalZone(zone);
+                });
+            });
+    } else {
+        setZoneContent(localStorage.getItem('zone'));
+
+        document.getElementById('myZip').textContent =
+            localStorage.getItem('zipcode');
+    }
+
+    el`#zipInput`.addEventListener('input', (e) => {
+        const zip = e.target.value;
+        if (zip.length == 5) {
+            localStorage.setItem('zipcode', zip);
+            document.getElementById('myZip').textContent = zip;
+            window.fetchZone(zip).then((zone) => {
+                setLocalZone(zone);
+            });
+        }
+    });
+
+    el`.zone-btn.zone-muted`.addEventListener('click', async (e) => {
+        e.target.disabled = true;
+        const ip = await window.getClientIP();
+        const zip = await window.getClientZip(ip);
+        localStorage.setItem('zipcode', zip);
+        document.getElementById('myZip').textContent = zip;
+        window.fetchZone(zip).then((zone) => {
+            setLocalZone(zone);
+            e.target.disabled = false;
+        });
+    });
+
+    el`.zone-btn:not(.zone-muted)`.addEventListener('click', (e) => {
+        el`#zoneDropdownContent`.classList.add('d-none');
+    });
+
+    els`.page-width:has(.zone-dropdown-content) > div:not(.zone-dropdown-content)`.forEach(
+        (e) => e.addEventListener('click', toggleZoneDropdown)
+    );
+} catch (e) {}
 
 // Get JSON Files from NGROK
 try {
@@ -34,7 +157,7 @@ try {
         return new Promise((resolve, reject) => {
             fetch(
                 'https://api.settlemyrenursery.com/files/catalog_images/collection_header_images/' +
-                    coll +
+                    coll.replaceAll('_', '-') +
                     '.jpg',
                 {
                     method: 'GET',
@@ -455,7 +578,7 @@ try {
     parseItems();
 
     el`header-drawer span`.addEventListener('click', (event) => {
-        for (let i = 5; i < 250; i += 25) {
+        for (let i = 5; i < 1000; i += 25) {
             setTimeout(() => {
                 parseItems();
             }, i);
@@ -463,8 +586,8 @@ try {
     });
 
     function parseItems() {
-        const navItems = [...els`.list-menu li`];
-        const navItemConfigs = els`.nav-item-config`;
+        const navItems = [...document.querySelectorAll(`.list-menu > li`)];
+        const navItemConfigs = document.querySelectorAll(`.nav-item-config`);
 
         navItemConfigs.forEach((config) => {
             const find = config.dataset.find;
@@ -473,28 +596,34 @@ try {
             const startDate = config.dataset.startdate;
             const endDate = config.dataset.enddate;
 
-            const li = navItems.find((li) => {
-                return li.innerText.toLowerCase() == find.toLowerCase();
+            const lis = navItems.filter((li) => {
+                let isIt =
+                    li.innerText.toLowerCase().trim() ==
+                    find.toLowerCase().trim();
+                return isIt;
             });
 
-            if (!li) return;
-            if (visible == 'false') return li.classList.add('d-none');
+            lis.forEach((li) => {
+                if (!li) return;
 
-            if (variableVisibility == 'true') {
-                const visibleFromDate = new Date(
-                    `${startDate} ${new Date().getFullYear()}`
-                ).getTime();
-                const visibleToDate = new Date(
-                    `${endDate} ${new Date().getFullYear()}`
-                ).getTime();
+                if (visible == 'false') return li.classList.add('d-none');
 
-                if (
-                    Date.now() < visibleFromDate ||
-                    Date.now() > visibleToDate
-                ) {
-                    li.classList.add('d-none');
+                if (variableVisibility == 'true') {
+                    const visibleFromDate = new Date(
+                        `${startDate} ${new Date().getFullYear()}`
+                    ).getTime();
+                    const visibleToDate = new Date(
+                        `${endDate} ${new Date().getFullYear()}`
+                    ).getTime();
+
+                    if (
+                        Date.now() < visibleFromDate ||
+                        Date.now() > visibleToDate
+                    ) {
+                        li.classList.add('d-none');
+                    }
                 }
-            }
+            });
         });
     }
 } catch (e) {
@@ -591,6 +720,25 @@ try {
 } catch (e) {
     console.log(e);
 }
+
+// Contact Triggers
+try {
+    let calls = els`a[href*="/trigger/call"]`;
+    let emails = els`a[href*="/trigger/email"]`;
+    let texts = els`a[href*="/trigger/text"]`;
+
+    calls.forEach((a) => {
+        a.setAttribute('href', 'tel:+18288740679');
+    });
+
+    emails.forEach((a) => {
+        a.setAttribute('href', 'mailto:sales@settlemyrenursery.com');
+    });
+
+    texts.forEach((a) => {
+        a.setAttribute('href', 'sms:+18288740679');
+    });
+} catch (e) {}
 
 // Email Subscription Form
 try {
@@ -1041,9 +1189,7 @@ try {
     }
 
     try {
-        let coll = window.location.pathname
-            .replace('/collections/', '')
-            .replaceAll('_', '-');
+        let coll = window.location.pathname.replace('/collections/', '');
 
         if (localStorage.getItem(`collection-hero-image-${coll}`)) {
             imageUrl = localStorage.getItem(`collection-hero-image-${coll}`);
@@ -1165,12 +1311,12 @@ try {
                 border-radius:0.5rem;
                 background-color: gray;
                 box-shadow: 0 0 5px whitesmoke;
-                font-size: 1.5rem;
+                font-size: 1.75rem;
                 cursor: pointer;
                 width: 10rem;
                 height: 10rem;
                 transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-                text-shadow: 0 0 1rem black;
+                text-shadow: 0 0 0.5rem black;
             }
 
             .c-blocks-${index}:hover {
@@ -1184,7 +1330,7 @@ try {
                 place-items: center;
                 position: absolute;
                 inset: 0;
-                backdrop-filter: blur(1px) brightness(60%);
+                backdrop-filter: blur(1px) brightness(75%);
                 border-radius: 0.5rem;
                 transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, border-radius 0.3s ease-in-out;
             }
@@ -1216,6 +1362,17 @@ try {
 } catch (e) {
     console.log(e);
 }
+
+try {
+    els`.hp-int`.forEach((e) => {
+        e.closest('form').addEventListener('submit', (ev) => {
+            if (e.value != '') {
+                ev.preventDefault();
+                window.location.reload();
+            }
+        });
+    });
+} catch (e) {}
 
 // Utility Functions
 

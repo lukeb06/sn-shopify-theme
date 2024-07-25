@@ -2,13 +2,9 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "custom_liquid_WcCWT3": {
-      "type": "custom-liquid",
-      "custom_css": [
-        "input {font-size: 1.5rem;}"
-      ],
+    "settle_email_subform_eedQPp": {
+      "type": "settle-email-subform",
       "settings": {
-        "custom_liquid": "<div class=\"email-wrapper\">\n<form id=\"emailSubform\">\n<label style=\"text-align: center;\">Subscribe Today & Save on Your First Order!<\/label>\n<div>\n<input type=\"email\" placeholder=\"Enter your email address\"\/>\n<input type=\"submit\" class=\"button button--primary\" \/>\n<\/div>\n<\/form>\n<\/div>",
         "color_scheme": "scheme-d1d5c835-e65b-4a54-85c2-0e9a052bdeba",
         "padding_top": 8,
         "padding_bottom": 16
@@ -69,7 +65,7 @@
     }
   },
   "order": [
-    "custom_liquid_WcCWT3",
+    "settle_email_subform_eedQPp",
     "footer"
   ]
 }

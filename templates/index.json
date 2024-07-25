@@ -82,10 +82,10 @@
       "settings": {
         "image1": "shopify:\/\/shop_images\/Dougle_Height.jpg",
         "link1": "",
-        "image2": "shopify:\/\/shop_images\/Grid_2_Top_from_settlemyrenursery.com.jpg",
-        "link2": "shopify:\/\/pages\/landscape-design",
-        "image3": "shopify:\/\/shop_images\/Grid_3_Bottom.jpg",
-        "link3": ""
+        "image2": "shopify:\/\/shop_images\/gift-cards.jpg",
+        "link2": "shopify:\/\/pages\/gift-cards",
+        "image3": "shopify:\/\/shop_images\/Grid_2_Top_from_settlemyrenursery.com.jpg",
+        "link3": "shopify:\/\/pages\/landscape-design"
       }
     },
     "settle_3_1_grid_F43Rcp": {
@@ -175,7 +175,7 @@
           "type": "button",
           "settings": {
             "button_label": "Button label",
-            "button_link": "",
+            "button_link": "\/collections\/all",
             "button_style_secondary": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -191,7 +191,7 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
@@ -224,15 +224,16 @@
         "featured_collection_W9CMUQ",
         "featured_collection_c3pjAD"
       ],
+      "disabled": true,
       "settings": {
         "title": "Favorites",
         "heading_size": "h1",
         "image_ratio": "square",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "color_scheme": "",
         "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -267,6 +268,9 @@
     },
     "settle_landscape_layout_hhAiig": {
       "type": "settle-landscape-layout",
+      "custom_css": [
+        ".beautify__section--below-section1 {margin-bottom: 36px;}"
+      ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
         "title": "Local Landscape Designers Help Beautify Your Home",
