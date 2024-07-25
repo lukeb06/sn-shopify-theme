@@ -1785,3 +1785,34 @@ slider-component {
         margin: 2px !important;
     }
 }
+
+.search-modal__form {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100% !important;
+    max-height: 100% !important;
+}
+
+.search-modal__form .search__input,
+.search-modal__form .search__button {
+    height: 100% !important;
+}
+
+.search-modal__form .field__label {
+    top: 50% !important;
+    left: 1rem;
+    transform: translateY(-50%) !important;
+}
+
+.search-modal__form .field__input:focus,
+.search-modal__form .field__input:not(:placeholder-shown) {
+    padding: 6px !important;
+    padding-left: 1rem;
+}
+
+.search-modal__form .field__input:focus ~ .field__label,
+.search-modal__form .field__input:not(:placeholder-shown) ~ .field__label {
+    display: none !important;
+}

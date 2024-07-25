@@ -132,8 +132,8 @@ fetch('https://api.ipify.org?format=json')
         el`#zoneDropdownContent`.classList.add('d-none');
     });
 
-    els`.page-width:has(.zone-dropdown-content) > div:not(.zone-dropdown-content)`.forEach(
-        (e) => e.addEventListener('click', toggleZoneDropdown)
+    els`.zone-dropdown-wrapper`.forEach((e) =>
+        e.addEventListener('click', toggleZoneDropdown)
     );
 } catch (e) {}
 
@@ -1027,7 +1027,7 @@ try {
 try {
     let collectionItems = [
         ...els`.collection-list__item`,
-        ...els`.grid.product-grid .grid__item`,
+        ...els`.grid.product-grid .card__inner`,
     ];
 
     collectionItems.forEach((item) => {
@@ -1037,13 +1037,14 @@ try {
                 cursor: pointer;
             }
 
-            .grid__item {
+            .card__inner {
                 cursor:pointer;
             }
         `;
         item.before(s);
 
-        const link = item.querySelector('a');
+        let link = item.querySelector('a');
+        if (!link) link = item.closest('a');
         const href = link.getAttribute('href');
 
         item.addEventListener('click', (e) => {
