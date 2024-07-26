@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slideshow_64GwrK": {
@@ -24,7 +33,7 @@
         "slide_XccGqD": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Privacy_Trees_NC_Settlemyre_Nursery.jpg",
+            "image": "shopify:\/\/shop_images\/Privacy_Trees_1920x1080_5f1b1c33-20bc-47b4-bbd4-28ebd2a26758.jpg",
             "heading": "Privacy Trees",
             "heading_size": "h1",
             "subheading": "Take back your privacy.",
@@ -80,28 +89,22 @@
     "settle_3_block_layout_TKGcyA": {
       "type": "settle-3-block-layout",
       "settings": {
-        "image1": "shopify:\/\/shop_images\/Dougle_Height.jpg",
         "link1": "",
-        "image2": "shopify:\/\/shop_images\/gift-cards.jpg",
         "link2": "shopify:\/\/pages\/gift-cards",
-        "image3": "shopify:\/\/shop_images\/Grid_2_Top_from_settlemyrenursery.com.jpg",
         "link3": "shopify:\/\/pages\/landscape-design"
       }
     },
     "settle_3_1_grid_F43Rcp": {
       "type": "settle-3-1-grid",
       "settings": {
-        "image1": "shopify:\/\/shop_images\/Settle_My_Nursery_Directions.jpg",
         "link1": "https:\/\/www.google.com\/maps\/place\/Settlemyre+Nursery\/@35.7350222,-81.6114111,15z\/data=!4m6!3m5!1s0x8850d134198ffec3:0x2c8878dae637a976!8m2!3d35.7350222!4d-81.6114111!16s%2Fg%2F11bxvfkzk8?entry=ttu",
         "checkbox1": false,
         "select1": "bottom",
         "text1": "",
-        "image2": "shopify:\/\/shop_images\/Rewards_settlemyrenursery.jpg",
         "link2": "shopify:\/\/pages\/rewards",
         "checkbox2": false,
         "select2": "bottom",
         "text2": "",
-        "image3": "shopify:\/\/shop_images\/Dark_Hydrangea.jpg",
         "link3": "",
         "checkbox3": true,
         "select3": "bottom",
@@ -150,7 +153,6 @@
       "settings": {
         "title1": "Garden Center - Plant & Tree Nursery - Landscaping",
         "paragraph1": "<h4>Settlemyre Nursery is a garden center in Valdese, North Carolina. We exist to help you create a lasting landscape! Our plant nursery has flowers, trees, shrubs, and gardening essentials like mulch, soil, and tools. With a wide variety of products, and a dedicated team of landscape designers, our family-owned plant nursery is ready to help you accomplish your landscaping goals!<\/h4>",
-        "image": "shopify:\/\/shop_images\/Settlemyre_Nursery_Planters_Header.jpg",
         "title2": "Serving you since 1973 - Settlemyre Nursery grows the healthiest plants alive. Come see us today!",
         "paragraph2": "<h4>For over 50 years the Settlemyres have been green! For three generations, our family owned and operated plant and tree nursery have thrive in beautiful foothills of Valdese, NC. A short drive from Hickory, Lake James, Morganton, Connelly Springs, Granite Falls, Gastonia, Mooresville, Charlotte, Boone, Blowing Rock, and Asheville, NC. Not only do we build lasting lanscapes, we build life long relationships. Let us create the the landscape you have been dreaming of. Stop in team the professionals today at Settlemyre Nursery, your go to garden center!<\/h4>"
       }
@@ -272,7 +274,6 @@
         ".beautify__section--below-section1 {margin-bottom: 36px;}"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Landscape_Design.jpg",
         "title": "Local Landscape Designers Help Beautify Your Home",
         "paragraph": "<p>Our dedicated team of landscape designers provide hundreds of designs each year to customers wanting an expert perspective. Work with a team who can quickly produce an amazing solution for your landscape design challenges. No design project is too big or too small.<\/p>",
         "button_label": "Learn More",
