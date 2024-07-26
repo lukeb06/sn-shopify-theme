@@ -100,14 +100,17 @@
     "settle_3_1_grid_F43Rcp": {
       "type": "settle-3-1-grid",
       "settings": {
+        "image1": "shopify:\/\/shop_images\/Settle_My_Nursery_Directions.jpg",
         "link1": "https:\/\/www.google.com\/maps\/place\/Settlemyre+Nursery\/@35.7350222,-81.6114111,15z\/data=!4m6!3m5!1s0x8850d134198ffec3:0x2c8878dae637a976!8m2!3d35.7350222!4d-81.6114111!16s%2Fg%2F11bxvfkzk8?entry=ttu",
         "checkbox1": false,
         "select1": "bottom",
         "text1": "",
-        "link2": "shopify:\/\/pages\/rewards",
+        "image2": "shopify:\/\/shop_images\/Rewards_settlemyrenursery.jpg",
+        "link2": "shopify:\/\/pages\/rewards-program",
         "checkbox2": false,
         "select2": "bottom",
         "text2": "",
+        "image3": "shopify:\/\/shop_images\/Dark_Hydrangea.jpg",
         "link3": "",
         "checkbox3": true,
         "select3": "bottom",
