@@ -89,8 +89,11 @@
     "settle_3_block_layout_TKGcyA": {
       "type": "settle-3-block-layout",
       "settings": {
+        "image1": "shopify:\/\/shop_images\/Dougle_Height.jpg",
         "link1": "",
+        "image2": "shopify:\/\/shop_images\/gift-cards.jpg",
         "link2": "shopify:\/\/pages\/gift-cards",
+        "image3": "shopify:\/\/shop_images\/Grid_2_Top_from_settlemyrenursery.com.jpg",
         "link3": "shopify:\/\/pages\/landscape-design"
       }
     },
